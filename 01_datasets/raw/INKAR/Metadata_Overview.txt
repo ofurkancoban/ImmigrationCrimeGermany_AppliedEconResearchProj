@@ -1,0 +1,13 @@
+INKAR DOWNLOAD METADATA
+Generated: 2026-06-18 11:57:35.635516
+Source: BBSR INKAR Database via inkaR R-Package v0.6.1
+Geographic Level: KRE (Landkreise)
+Variables:
+Zensuskorrigierte Zahl der Einwohner insgesamt
+Anteil der Ausländer an den Einwohnern in %
+Anteil der Arbeitslosen an den zivilen Erwerbspersonen in %
+Anteil der ausländischen Arbeitslosen an den Arbeitslosen in %
+Bruttoinlandsprodukt in 1.000 € je Einwohner
+Anteil der Einwohner unter 6 Jahren an den Einwohnern in %
+Anteil der 6- bis unter 18-Jährigen an der Bevölkerung
+Anteil der 18- bis unter 25-Jährigen an der Bevölkerung
