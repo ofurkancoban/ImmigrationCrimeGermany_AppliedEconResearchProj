@@ -1,0 +1,18 @@
+================================================================
+      Hausman Test: Fixed Effects vs. Random Effects         
+================================================================
+
+
+	Hausman Test
+
+data:  formula_hausman
+chisq = 318.29, df = 8, p-value < 2.2e-16
+alternative hypothesis: one model is inconsistent
+
+
+Interpretation:
+H0: Random Effects is consistent and efficient.
+H1: Random Effects is inconsistent (Fixed Effects is preferred).
+
+Result: REJECT H0 (p < 0.05). Fixed Effects is more appropriate.
+================================================================

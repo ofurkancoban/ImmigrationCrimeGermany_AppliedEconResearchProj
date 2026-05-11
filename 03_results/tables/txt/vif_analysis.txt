@@ -1,0 +1,23 @@
+================================================================
+      Multicollinearity Analysis: Variance Inflation Factor   
+            (Adjusted for Two-Way Fixed Effects)              
+================================================================
+
+                                Variable R2_within    VIF
+wr2                         log_unemp_l1    0.3420 1.5198
+wr21                         log_capital    0.2646 1.3598
+wr22              log_property_damage_l1    0.0142 1.0144
+wr23                   FE_share_children    0.3630 1.5700
+wr24                      FE_share_youth    0.4372 1.7770
+wr25                     foreigner_share    0.2908 1.4100
+wr26 FE_foreign_labor_supply_pressure_l1    0.2901 1.4087
+wr27            FE_log_labor_efficacy_l1    0.2531 1.3388
+
+Interpretation:
+- VIF < 5:  Low / Negligible multicollinearity
+- 5 < VIF < 10: Moderate multicollinearity (acceptable)
+- VIF > 10: Potential concern (high multicollinearity)
+
+Conclusion: All VIF scores are within acceptable thresholds (< 10).
+Multicollinearity does not significantly bias the parameter estimation.
+================================================================
