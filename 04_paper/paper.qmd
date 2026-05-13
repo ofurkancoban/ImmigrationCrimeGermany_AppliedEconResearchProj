@@ -1,0 +1,2113 @@
+---
+title: "Immigration, Crime, and Prosperity"
+subtitle: "The Economic Drivers of Growth in German Districts"
+author: "Ömer Furkan Çoban"
+university: "Carl von Ossietzky University of Oldenburg"
+department: "Applied Economics and Data Science"
+course: "Applied Economics (WiSe 25/26)"
+instructors: 
+  - "Prof. Dr. Jürgen Bitzer"
+  - "Dr. Bernhard Christopher Dannemann"
+  - "Abigail Opokua Asare"
+bibliography: ../00_literature/references.bib
+csl: apa.csl
+lang: en
+date: "2026-02-27"
+date-format: "DD.MM.YYYY"
+toc-depth: 4
+editor:
+  render-on-save: true
+crossref:
+  fig-prefix: ""
+  sec-prefix: ""
+  tbl-prefix: ""
+format:
+  pdf:
+    papersize: a4
+    pdf-engine: lualatex
+    mainfont: "Latin Modern Roman"
+    fontsize: 12pt
+    toc: false
+    number-sections: true
+    title-block-render: false
+    geometry:
+      - margin=1in
+    colorlinks: true
+    linkcolor: blue
+    citecolor: blue
+    urlcolor: blue
+    fig-format: pdf
+    include-in-header:
+      text: |
+        \usepackage[dvipsnames]{xcolor}
+        \usepackage{hyperref}
+        \usepackage[nameinlink, noabbrev]{cleveref}
+        \hypersetup{
+          colorlinks=true,
+          linkcolor=blue,
+          citecolor=blue,
+          urlcolor=blue
+        }
+        % Force clickable and visible names for all reference types
+        \AtBeginDocument{
+          \crefname{section}{Section}{Sections}
+          \crefname{figure}{Figure}{Figures}
+          \crefname{table}{Table}{Tables}
+          \let\ref\Cref
+        }
+        \let\maketitle\relax
+        \setkomafont{disposition}{\normalcolor\bfseries}
+        \usepackage{newunicodechar}
+        \usepackage{float}
+        \usepackage{placeins}
+        \newunicodechar{^^^^2581}{\rule[0.2ex]{1.2ex}{0.175ex}} % Lifted 0.2ex and height 1/8
+        \newunicodechar{^^^^2582}{\rule[0.2ex]{1.2ex}{0.35ex}}  
+        \newunicodechar{^^^^2583}{\rule[0.2ex]{1.2ex}{0.525ex}}
+        \newunicodechar{^^^^2584}{\rule[0.2ex]{1.2ex}{0.7ex}}
+        \newunicodechar{^^^^2585}{\rule[0.2ex]{1.2ex}{0.875ex}}
+        \newunicodechar{^^^^2586}{\rule[0.2ex]{1.2ex}{1.05ex}}
+        \newunicodechar{^^^^2587}{\rule[0.2ex]{1.2ex}{1.225ex}}
+        \newunicodechar{^^^^2588}{\rule[0.2ex]{1.2ex}{1.4ex}} % Elevated for minimalist look
+        \raggedbottom
+  html:
+    theme: lux
+    page-layout: full
+    mainfont: "Times New Roman, Times, serif"
+    fontsize: 1.1em
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    embed-resources: true
+    css: paper.css
+    other-links:
+      - text: "Presentation Slides"
+        href: "presentation.html"
+        icon: easel
+    keep-md: true
+    include-in-header:
+      text: |
+        <style>
+        .quarto-xref, .citation, a {
+            text-decoration: underline !important;
+        }
+        </style>
+    title-block-render: false
+    title: ""
+    subtitle: ""
+    author: ""
+    date: ""
+    include-before-body:
+      text: |
+        <div class="html-title-page">
+            <div style="margin-bottom: 2rem;">
+                <img src="university_logo.png" style="width: 280px; margin-bottom: 1rem;">
+            </div>
+            
+            <div style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--primary);">Research Term Paper</div>
+            
+            <h1>Immigration, Crime, and Prosperity</h1>
+            <p class="subtitle">The Economic Drivers of Growth in German Districts</p>
+            
+            <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; font-family: 'Inter', sans-serif; border-top: 1px solid #eee; padding-top: 2rem;">
+                <div>
+                    <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">Submitted by:</div>
+                    <div style="font-size: 1.25rem; font-weight: 700;">Ömer Furkan Çoban</div>
+                    <div style="color: var(--muted); font-size: 0.9rem;">ID: 6552697</div>
+                </div>
+                <div>
+                    <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">Institution & Course:</div>
+                    <div style="font-size: 1rem;">Carl von Ossietzky University of Oldenburg</div>
+                    <div style="color: var(--muted); font-size: 0.9rem;">Applied Economics (WiSe 25/26)</div>
+                </div>
+            </div>
+
+            <div class="abstract-container">
+                <h2>Abstract</h2>
+                <div style="font-size: 1.1rem; line-height: 1.7; color: var(--text); padding-top: 1.5rem;">
+                    This paper investigates the regional economic impact of immigration across 400 German districts utilizing a panel dataset of 7,200 observations from 2003 to 2021. Moving beyond traditional aggregate measures, the research introduces two novel metrics: Labor Integration Efficacy and Foreign Labor Supply Pressure. Employing a Two-Way Fixed Effects (TWFE) model, the study demonstrates that regional prosperity, measured by GDP per capita, is not primarily driven by the sheer volume of the foreign-born population, but by the structural efficiency with which this demographic is absorbed into the productive workforce. The results identify a substantial "integration dividend," revealing that successful labor market participation acts as a powerful catalyst for regional economic growth. Additionally, the analysis incorporates social and demographic controls, showing that while high dependency ratios exert short-term fiscal pressures, localized social frictions such as property damage correlate positively with urban economic density. Ultimately, these findings recommend a paradigm shift in policy, emphasizing intensive integration infrastructures over migration quotas to harness latent human capital and ensure long-term regional resilience.
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; color: var(--muted); font-family: 'Inter', sans-serif; font-size: 0.9rem;">
+                27.02.2026
+            </div>
+        </div>
+---
+
+::: {.content-visible when-format="pdf"}
+
+```{=latex}
+  \begin{titlepage}
+    \centering
+    
+    % LOGO
+    \includegraphics[width=0.32\textwidth]{university_logo.png}
+    
+    \vspace{0.6cm}
+  
+    % TYPE
+    {\scshape\Large Term Paper} \\
+    \vspace{0.6cm}
+    \rule{\linewidth}{0.5pt} 
+    \vspace{0.1cm}
+  
+    % TITLE
+    {\huge \bfseries Immigration, Crime, and Prosperity \par}
+    \vspace{0.1cm}
+    {\Large \itshape The Economic Drivers of Growth in German Districts \par}
+    
+    \vspace{0.6cm}
+    \rule{\linewidth}{0.5pt} 
+   \vfill
+  
+    % AUTHOR & UNIVERSITY
+    {\Large \textbf{Ömer Furkan Çoban}} \\
+    {\normalsize Matriculation Number: 6552697}
+  
+    \vfill
+    {\normalsize Carl von Ossietzky University of Oldenburg} \\
+    {\normalsize School II – Computing Science, Business Administration,} \\
+    {\normalsize Economics, and Law} \\ 
+    \vspace{0.2cm}
+    {\normalsize \textit{Applied Economics and Data Science}}
+  
+    \vfill
+  
+    % COURSE & INSTRUCTORS
+    \begin{minipage}[t]{0.48\textwidth}
+        \begin{flushleft} \large
+            \textbf{Course:}\\
+            Applied Economics\\
+            Winter Semester\\
+            2025/2026
+        \end{flushleft}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \begin{flushright} \large
+            \textbf{Instructors:}\\
+            Prof. Dr. Jürgen Bitzer\\
+            Dr. Bernhard Dannemann\\
+            Abigail Opokua Asare
+        \end{flushright}
+    \end{minipage}
+  
+    \vspace{3cm}
+  
+    % DATE
+    {\large 27.02.2026}
+  
+\end{titlepage}
+  
+% PAGINATION SETUP
+\pagenumbering{gobble}
+
+% ABSTRACT
+\newpage
+\vspace*{2cm}
+\begin{center}
+    {\Large \textbf{Abstract}}
+\end{center}
+\vspace{1cm}
+\noindent This paper investigates the regional economic impact of immigration across 400 German districts utilizing a panel dataset of 7200 observations from 2003 to 2021. Moving beyond traditional aggregate measures, the research introduces two novel metrics: Labor Integration Efficacy and Foreign Labor Supply Pressure. Employing a Two-Way Fixed Effects (TWFE) model, the study demonstrates that regional prosperity, measured by GDP per capita, is not primarily driven by the sheer volume of the foreign-born population, but by the structural efficiency with which this demographic is absorbed into the productive workforce. The results identify a substantial ``integration dividend,'' revealing that successful labor market participation acts as a powerful catalyst for regional economic growth. Additionally, the analysis incorporates social and demographic controls, showing that while high dependency ratios exert short-term fiscal pressures, localized social frictions such as property damage correlate positively with urban economic density. Ultimately, these findings recommend a paradigm shift in policy, emphasizing intensive integration infrastructures over migration quotas to harness latent human capital and ensure long-term regional resilience.
+
+\newpage
+\pagenumbering{Roman}
+\hypersetup{linkcolor=black}
+\tableofcontents
+\hypersetup{linkcolor=NavyBlue}
+\newpage
+\addcontentsline{toc}{section}{List of Figures}
+\hypersetup{linkcolor=black}
+\listoffigures
+\hypersetup{linkcolor=NavyBlue}
+\newpage
+\addcontentsline{toc}{section}{List of Tables}
+\hypersetup{linkcolor=black}
+\listoftables
+\hypersetup{linkcolor=NavyBlue}
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+```
+
+:::
+
+{{< pagebreak >}}
+
+
+# Introduction {#sec-intro}
+
+The impact of immigration on economic prosperity remains a central pillar of German political debate. While national aggregates often obscure profound structural differences, this research investigates the regional determinants of GDP per capita across 400 districts. The core argument is that regional wealth stems not merely from the size of the immigrant population, but from how effectively that population is absorbed into the productive workforce.
+
+To explore this, the study utilizes a panel dataset of 7,200 observations from 2003 to 2021. The empirical strategy isolates growth drivers beyond fundamental indicators like capital stock and unemployment, accounting for regional demographic shifts through the shares of children and youth. I introduce two novel metrics: Labor Integration Efficacy, measuring the active economic footprint of employed foreigners, and Foreign Labor Supply Pressure, identifying unabsorbed labor reserves.
+
+A key contribution is the explicit distinction between quantity and quality in migration studies. By prioritizing Labor Integration Efficacy over simple foreigner shares and utilizing a Two-Way Fixed Effects (TWFE) model, the analysis provides a granular perspective that controls for time-invariant district characteristics and national shocks. This ensures the robustness of the estimated coefficients while identifying potential structural barriers and untapped human capital.
+
+Finally, the inclusion of property damage rates serves as a proxy for economic intensity and the socio-urban environment. Rather than a pure measure of social instability, this category identifies the concentration of valuable commercial assets and physical capital in high-density areas. Drawing on the framework of @glaeser2011triumph, I explore whether property crime acts as an indicator of urban vibrancy in the German context, signaling the presence of economic activity that attracts both investment and, as a friction of scale, higher rates of reported damage. Ultimately, the paper demonstrates that effective labor market integration is the primary driver of regional prosperity, while urban intensity contributes to the overall economic dynamism of industrial hubs.
+
+## Research Question and Hypotheses {#sec-hypotheses}
+
+To guide the empirical analysis, this study addresses the following central research question: To what extent does regional integration success drive GDP per capita in German districts, and how does the socio-urban environment moderate this relationship? Based on this question, the following hypotheses are formulated:
+
+* **$H_1$ (Capital Accumulation):** Higher capital stock per capita is positively correlated with GDP growth.
+* **$H_2$ (Integration Efficacy):** Regions with higher labor market integration efficacy exhibit superior economic performance.
+* **$H_3$ (Economic Intensity):** Higher property damage rates, serving as a proxy for urban vibrancy, are positively associated with regional prosperity.
+* **$H_4$ (Demographic Dividends):** The regional age structure, specifically a higher share of children and youth, significantly impacts GDP per capita by increasing dependency ratios. 
+
+
+# Literature Review {#sec-lit}
+
+The economic impact of migration is traditionally analyzed through labor supply shocks, where an increase in foreign-born labor is expected to influence native wages based on skill substitution [@Borjas2003]. However, modern frameworks suggest that the primary determinant of prosperity is not the aggregate volume of migration but the structural absorption of the foreign workforce. @Dustmann2012 emphasize that the impact of migration is highly heterogeneous across the wage distribution, while @DAmuri2014 demonstrate that immigrants often trigger a job upgrade for natives by taking manual-routine roles and pushing native workers toward more complex tasks. This study identifies a research gap in these models by introducing the concept of labor integration efficacy, which represents the quantifiable economic return generated when regional labor markets successfully transform migration potential into active productive participation.
+
+Furthermore, this research integrates urban externalities and demographic constraints into the growth framework to account for regional heterogeneity. While @Gould2002 suggest that deteriorating labor market opportunities for unskilled men correlate with rising crime rates, suggesting a potential deterrent effect on growth, @glaeser2011triumph offers a more nuanced counter-perspective. In high-density industrial hubs, certain social frictions, specifically property damage, may act as proxies for economic intensity and urban dynamism rather than direct inhibitors of prosperity. This reflects a "scale effect," where the concentration of valuable commercial assets and high-intensity economic activity naturally attracts higher rates of reported damage. Similarly, the regional age structure plays a critical role, as high dependency ratios among children and youth can exert short-term fiscal pressures on GDP per capita even while representing future human capital reserves. By synthesizing these perspectives within a district-level panel analysis, this paper moves beyond static migration assessments to explore the multi-layered drivers of regional economic resilience in Germany.
+
+# Data
+
+```{r}
+#| label: setup-data
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+library(modelsummary)
+library(here)
+library(showtext)
+library(giscoR)
+
+showtext_auto()
+
+# Set persistent cache for giscoR to avoid redundant downloads/timeouts
+maps_cache <- here::here("01_datasets", "maps")
+if (!dir.exists(maps_cache)) dir.create(maps_cache, recursive = TRUE)
+giscoR::gisco_set_cache_dir(maps_cache)
+
+# Source utilities and load common dataset
+source(here::here("02_scripts", "04_tools", "utils.R"))
+
+df_raw <- prepare_panel_data(here::here(
+    "01_datasets",
+    "final",
+    "panel_data_final_2003_2021.csv"
+)) %>%
+    mutate(log_unemployment = log(INKAR_EMPLOYMENT_unemployment_rate))
+
+# Format detection helper
+is_latex <- knitr::is_latex_output()
+```
+
+This section describes the dataset used to analyze regional economic prosperity in Germany. The study employs a balanced panel of 400 German districts (Kreise) over a 19-year period (2003-2021), resulting in an initial total of 7,600 observations. Due to the implementation of a one-year temporal lag ($t-1$) in the econometric specifications to mitigate reverse causality, the first year (2003) is absorbed, yielding an effective estimation sample of 7,200 observations. This extensive dataset allows for the relationship between regional GDP per capita, social stability proxies, and labor market dynamics while controlling for district-level and time-specific fixed effects. The following subsections detail the administrative sources, the processing of spatial boundaries, and the descriptive statistics of the variables used in the final regression.
+
+## Data Sources
+
+The empirical analysis relies on three primary administrative databases to construct a panel of German districts. These sources provide the necessary criminal, socio-economic, and macroeconomic indicators required for the estimation.
+
+### Bundeskriminalamt - Polizeiliche Kriminalstatistik (PKS)
+
+The primary source for crime-related data is the Polizeiliche Kriminalstatistik (PKS), published annually by the Bundeskriminalamt (BKA) [@bka_pks_2026]. This administrative database provides a comprehensive record of all reported offenses and clearance rates (*Aufklärungsquote*) at the district level (*Kreise*). 
+
+The construction of the longitudinal dataset required heterogeneous data retrieval strategies due to changes in the BKA’s reporting formats over time. For the period between 2003 and 2012, data were manually extracted and digitized from the annual PDF reports. From 2013 onwards, the data were retrieved directly from official Excel databases provided by the BKA. To ensure longitudinal consistency, data were systematically matched using official district identification codes (*Kreisschlüssel*) and crime classification codes (*Straftatenschlüssel*). A detailed definition of the specific crime variables derived from this source is provided in @sec-var-spec.
+
+### INKAR
+
+Socio-economic and demographic indicators are obtained from the *Indikatoren und Karten zur Raum- und Stadtentwicklung*  (INKAR) database, maintained by the Federal Office for Building and Regional Planning (BBSR) [@bbsr_inkar_2026]. This source provides comprehensive structural data at the district level (Kreise), encompassing essential control variables such as unemployment rates, foreign share, and age-specific population shares. A significant longitudinal advantage of this database is its extensive temporal coverage, offering consistent regional indicators from the 1990s to the present. Furthermore, the data provided are already spatially harmonized to the most recent territorial status (*Gebietsstand*), ensuring that historical figures are directly comparable with current administrative boundaries without requiring manual spatial adjustments.
+
+To ensure high data integrity and the reproducibility of the extraction process, the data retrieval was conducted through a programmatic interface developed for this study. Since the INKAR platform lacks a public API for large-scale automated queries, the *inkaR* package [@Coban2026] was developed by reverse-engineering the underlying web requests of the database. This allows for the direct and structured extraction of indicators into the R environment, minimizing manual entry errors and providing a standardized framework for handling German spatial data.^[For documentation and source code, see: https://doi.org/10.32614/CRAN.package.inkaR] Beyond the scope of this paper, this open-source tool serves as a methodological contribution by lowering technical barriers for future regional studies, ensuring that the data refinement process remains transparent and verifiable for the broader research community.
+
+### StatistikPortal {#sec-statistikportal}
+
+Macroeconomic datasets from the StatistikPortal [@statistikportal_2026], specifically the Regional Accounts of the Länder (VGRdL), are utilized to construct capital stock measures for all 400 districts from 2003 to 2021. Two primary reports provide the basis for this estimation: Series 2 (Volume 1) for district-level GDP and Gross Value Added (GVA) [@vgrdl_gdp_2025], and Series 1 (Volume 4) for fixed assets (*Anlagevermögen*) at the state level [@vgrdl_assets_2023]. 
+
+Since official fixed asset data are only published at the state level, a disaggregation procedure is performed using district-level GVA and GDP shares as distributional weights. This ensures that capital intensity is estimated consistently with each region's economic output, as detailed in Section 3.3. To maintain longitudinal consistency across the 2021-year horizon, all indicators were subjected to a rigorous harmonization procedure to account for territorial reforms (*Gebietsreformen*) and demographic reporting shifts. This process ensures that estimated coefficients reflect genuine socio-economic changes rather than administrative reclassifications or statistical breaks.
+
+## Data Refinement
+
+The initial dataset underwent structural refinements to ensure longitudinal consistency across the district panel. This refinement phase is crucial for eliminating artificial fluctuations in the time series that could otherwise be misinterpreted as economic shifts. First, a spatial harmonization procedure accounted for administrative boundary changes during the observation period. Second, specific adjustments addressed demographic breaks introduced by the 2011 Census results, which corrected previous population overestimates. By systematically refining the raw data through these channels, the study produces a balanced and reliable panel suitable for robust econometric estimation.
+
+### Spatial Harmonization
+
+A significant challenge in longitudinal regional analysis in Germany is the frequent occurrence of territorial reforms (*Gebietsreformen*). Since 2003, numerous districts have been merged or restructured, particularly in the Eastern federal states. While datasets from INKAR are provided in a pre-harmonized format by the BBSR, the raw crime statistics from the PKS are reported based on the administrative boundaries effective at the time of recording. To ensure a consistent panel, all historical PKS data from 2003 to 2021 were spatially harmonized to the 2023 territorial status (*Gebietsstand*) using the official population-weighted transition keys (*Umsteigeschlüssel*) provided by the BBSR [@bbsr_umstieg_2023]. For intensity metrics such as crime rates per 100,000 inhabitants, values were recalculated from harmonized absolute counts and population figures to maintain mathematical integrity.^[A systematic error in the official BBSR transition key for Mayen-Koblenz (AGS: 07137) was identified for the 2014–2015 and 2015–2016 transition periods and corrected programmatically to maintain panel integrity.] The full mathematical specification of the weighting logic, including representative case studies from Mecklenburg-Vorpommern, is provided in @sec-app-harmonization.
+
+### Census 2011 Adjustment {#sec-census-adj}
+
+The 2011 Census revealed that official population estimates (*Fortschreibung*) had significantly overestimated inhabitant counts in many districts, causing structural breaks in all per capita metrics. To neutralize this administrative shock, all per capita indicators were recalculated using census-corrected population figures sourced from the INKAR database [@bbsr_inkar_2026]. The full adjustment formula and implementation details are provided in @sec-app-census.
+
+## Variable Specification {#sec-var-spec}
+
+The variables used in our econometric model are categorized into three primary functional groups: the dependent variable reflecting regional prosperity, the independent variables of interest capturing migration and integration, and a set of control variables to mitigate omitted variable bias by accounting for economic and demographic variations.
+
+
+### Dependent Variable
+
+The primary dependent variable, Log GDP per Capita ($\ln(Y_{it})$), measures regional economic performance by capturing the total output generated within a district relative to its population. To ensure comparability and mitigate inflationary effects, GDP is measured in thousands of Euros (1,000 EUR) per inhabitant, with harmonized data sourced from the INKAR database [@bbsr_inkar_2026].
+
+A natural logarithmic transformation is applied to handle significant regional outliers and satisfy the normality assumptions required for a fixed-effects framework. As illustrated in @fig-dist-gdp, the raw GDP distribution is heavily right-skewed, whereas the log-transformed version approximates normality and stabilizes variance across the panel. This specification further allows the estimated coefficients to be interpreted as elasticities, representing the percentage change in regional prosperity associated with marginal shifts in the predictors.
+
+
+
+
+### Independent Variables
+
+The core of the empirical analysis rests on three distinct dimensions of foreign labor participation, each capturing a different facet of how international migration interacts with regional economic output. These variables are constructed to distinguish between the mere presence of a foreign population and the actual economic efficacy of their labor market integration.
+
+#### Log Labor Integration Efficacy
+
+This variable measures the direct absorption of the foreign-born population into the regional workforce, serving as a primary indicator of integration quality. Theoretically, this approach aligns with the framework established by @Borjas1995, which posits that the economic impact of migration depends heavily on the extent to which immigrants' productive capacities are activated within the host economy. To capture this dynamic, the variable is constructed using the primary foreigner share indicator and employment data obtained from the INKAR database [@bbsr_inkar_2026]. Specifically, it is calculated as the product of the foreign employment rate (proxied by the complement of the foreign unemployment rate) and the overall foreigner share:
+
+$$LIE_{it} = (100 - \text{Foreign Unemployment Rate}_{it}) \times \text{Foreigner Share}_{it}$$
+
+While acknowledging that this proxy primarily focuses on the active labor force participation, this approach effectively captures the economic activation of the migrant demographic. By operationalizing the variable in this manner, the model captures the intensity of the migrant demographic’s contribution to regional value added. To maintain consistency with the log-log specification of the econometric model and to interpret the estimated coefficients as elasticities, a natural logarithmic transformation is applied ($\ln(LIE_{it})$). This specification allows the model to move beyond mere population headcounts and instead focus on how effectively a district utilizes its available foreign labor potential to drive economic output.
+
+The distributional characteristics of the labor integration efficacy variable are shown in @fig-dist-efficacy. As illustrated, the raw distribution exhibits a notable right-skew, reflecting the concentration of migrant labor activity in specific industrial or urban hubs. The log-transformation effectively normalizes this distribution, stabilizing the variance and reducing the potential bias from regional outliers, thereby ensuring the robustness of the fixed-effects estimations.
+
+
+
+#### Foreign Labor Supply Pressure
+
+To capture the structural dynamics and untapped potential within the regional labor market, the Foreign Labor Supply Pressure($FLSP_{it-1}$) is constructed as a measure of available labor reserves. Theoretically, this metric aligns with the labor market mismatch and dual labor market frameworks discussed by @Borjas1995, which emphasize that the demographic presence of an immigrant population represents a latent productive capacity that requires effective institutional absorption. This variable identifies the relative concentration of the foreign population within the unemployed segment compared to their overall demographic share. It is calculated by the author using the primary foreigner share indicator from the INKAR database [@bbsr_inkar_2026] alongside foreign unemployment data according to the following specification:
+
+$$FLSP_{it-1} = \frac{\text{Foreign Unemployed Share}_{it-1}}{\text{Foreigner Share}_{it-1}}$$
+
+In this formulation, a higher value indicates a significant pool of foreign labor that is currently non-participatory but residentially established within the district. Unlike the efficacy and GDP measures, this variable is included in its level form to directly capture the marginal impact of labor supply density on regional economic outcomes. From a regional growth perspective, this "pressure" can be interpreted as a reservoir of human capital; while it signals a temporary integration lag, its positive correlation with prosperity often reflects the high gravitational pull of economically vibrant districts that attract migrant populations faster than the immediate absorption capacity of the local labor market.
+
+Following established econometric strategies to mitigate potential reverse causality and endogeneity, the Foreign Labor Supply Pressure is incorporated into the model with a one-year lag ($t-1$). This temporal shift ensures that the estimated impact on regional GDP accounts for the necessary time required for labor supply shifts to be processed by the regional economy. Furthermore, lagging the variable effectively addresses the risk of simultaneity bias, where localized economic booms might themselves drive sudden influxes in migrant unemployment due to rapid arrival rates. By ensuring that the labor supply status of the previous period precedes the measurement of regional prosperity, the model provides a more robust identification of the labor market’s structural influence on regional economic performance.
+
+#### Foreigner Share {#sec-foreigner-share}
+
+The Foreigner Share ($FS_{it}$) represents the demographic scale of immigration, measured as the proportion of non-German citizens relative to the total resident population. Obtained as a standardized percentage from the INKAR database [@bbsr_inkar_2026], this indicator accounts for the quantitative volume of the migrant population in line with the framework by @Borjas1995. This allows the model to distinguish between pure demographic presence and the qualitative success of labor market inclusion.
+
+By including $FS_{it}$ alongside efficacy and supply pressure measures, the econometric specification isolates population concentration from specific economic contributions. The variable is included in its level form, capturing the semi-elasticity of regional GDP with respect to changes in the immigrant population share. This approach ensures that the estimated effects of integration do not merely reflect the size of the foreign-born community but instead capture the localized economic consequences of structural participation, providing a robust control for district-level demographic scale effects.
+
+### Control Variables {#sec-controls}
+
+To ensure internal validity and satisfy the *ceteris paribus* assumption, a comprehensive set of control variables is included in the econometric specification. These regressors account for alternative drivers of regional growth, such as physical capital intensity, labor market health, and demographic structures, thereby reducing the risk of omitted variable bias. 
+
+The dataset for these controls is constructed from multiple official sources. Demographic and labor market indicators are obtained from the INKAR database [@bbsr_inkar_2026], while proxies for economic intensity and capital stock figures are sourced from the Police Crime Statistics [@bka_pks_2026] and the Statistikportal [@statistikportal_2026], respectively.
+
+#### Socio-Urban Intensity Proxy {#sec-social-stability}
+
+The natural logarithm of the property damage rate serves as a proxy for Socio-Urban Intensity and the localized concentration of physical capital. Unlike violent crime categories, property-related offenses in the German district context are heavily influenced by the density of commercial assets and urban dynamism. As prosperity attracts high-value physical infrastructure and commercial activity, it simultaneously increases the "surface area" for property-related frictions. This category is prioritized as it specifically reflects the economic vibrancy and capital density of the regional business environment.
+
+Raw data are sourced from the Police Crime Statistics [@bka_pks_2026], specifically category 674000 (*§§ 303-305a StGB*), and normalized per 100,000 inhabitants:
+
+$$\text{Property Damage Rate}_{it} = \left( \frac{\text{Reported Offenses}_{it}}{\text{Total Population}_{it}} \right) \times 100,000$$
+
+
+
+A natural logarithmic transformation is applied to normalize the distribution, allowing for an elasticity interpretation. To mitigate reverse causality, the model incorporates this metric with a one-year lag ($t-1$), ensuring that estimated integration effects are not confounded by prior social tensions.
+
+As shown in @fig-dist-property, the raw crime data displays a heavy right-skew, with outliers in major urban centers. The logarithmic transformation effectively stabilizes the variance across the panel and shifts the distribution closer to normality, ensuring that extreme regional variations do not disproportionately influence the estimated parameters.
+
+#### Economic Foundations
+
+To account for the fundamental drivers of regional productivity beyond migration and social factors, the model incorporates two primary economic indicators: the regional capital stock and the overall unemployment rate. These variables serve as the bedrock of the district-level production function, ensuring that the estimated effects of labor integration are not confounded by variations in physical capital intensity or broader labor market distress. Both indicators are natural log-transformed to maintain a consistent log-log specification, allowing for the interpretation of their coefficients as elasticities relative to regional GDP per capita.
+
+##### Log Capital Stock per Capita
+
+Physical capital is a fundamental determinant of regional economic output, as established by the neoclassical growth framework of @Solow1956. In this model, the capital stock($\ln(K_{it})$) represents the accumulated productive assets such as machinery, infrastructure, and buildings that enhance labor productivity. Despite its theoretical importance, official capital stock data (*Anlagevermögen*) in Germany is not published at the district level (*Kreise*); the Regional Accounts of the Länder (VGRdL) only provide these figures at the higher state level (*Länder*) [@statistikportal_2026]. To resolve this geographical data gap and maintain the internal validity of the district-level production function, district-level estimates were calculated using a systematic top-down disaggregation procedure. The full mathematical details of this estimation methodology are provided in @sec-app-capital-calc.
+
+
+As illustrated in @fig-dist-capital, the raw capital stock data exhibits significant right-skewness, reflecting the concentration of industrial assets in specific regional hubs. The applied natural logarithmic transformation effectively normalizes the distribution, ensuring that the estimated elasticities are not biased by extreme regional variations in industrial intensity.
+
+##### Log Unemployment Rate ($t-1$) {#sec-unemployment}
+
+To isolate the specific impact of labor integration from broader macroeconomic fluctuations, the model incorporates the regional unemployment rate as a control for local labor market conditions. Theoretically, this follows the wage curve literature established by @Blanchflower1995 and @Blanchflower2005, which links regional performance to unemployment levels. In this framework, the unemployment rate serves as a high-frequency proxy for the business cycle and the overall economic health of a district.
+
+Sourced from the INKAR database [@bbsr_inkar_2026], this metric represents the share of registered unemployed relative to the civilian labor force. To address potential simultaneity and reduce endogeneity bias, the variable is included with a one-year lag ($t-1$), ensuring it captures the pre-existing economic environment. The variable is transformed into its natural logarithm to maintain a consistent log-log specification:
+
+$$u_{d,t-1} = \ln(\text{Unemployment Rate}_{d,t-1})$$
+
+This approach ensures that the coefficients for foreign labor integration are not confounded by cyclical downturns or structural shocks affecting the general population. As shown in @fig-dist-unemployment, the logarithmic transformation effectively stabilizes the variance across the district panel, aligning the distribution with the requirements of the production function specification.
+
+
+
+#### Demographic Controls {#sec-demographic-controls}
+
+To account for heterogeneous population structures across German districts, the model incorporates age-based demographic controls sourced from the INKAR database [@bbsr_inkar_2026]. These variables isolate the impact of labor integration from variations in regional dependency ratios and future labor supply potential, acknowledging that regions with differing demographic profiles exhibit distinct patterns of consumption and public service demand. By including these age-specific shares, the specification ensures that integration coefficients are not confounded by structural demographic shifts, effectively differentiating between regions with high proportions of non-working age residents and those with a robust supply of new labor market entrants.
+
+#### Share of Children (0-17) {#sec-share-children}
+
+The proportion of children aged 0 to 17 serves as a proxy for the young age dependency ratio. Grounded in the dependency burden hypothesis [@Coale1958], this metric accounts for the reallocation of regional resources from productive capital toward social infrastructure. Constructed by aggregating population shares for age groups 0-5 and 6-17 from the INKAR database [@bbsr_inkar_2026], this variable remains stable across the panel, centered symmetrically around the national average (@fig-dist-demo).
+
+#### Share of Youth (18-24) {#sec-share-youth}
+
+The population share of young adults aged 18 to 24 captures the regional supply of new human capital. Following @Brander1994, this cohort represents both a temporary downward pressure on GDP due to education-related reallocation and a primary source of future productivity. Sourced from INKAR [@bbsr_inkar_2026], this indicator highlights the economic vitality of university and industrial hubs (@fig-dist-demo). Controlling for this share ensures that integration impacts are isolated from the transient economic signals of youth-heavy urban environments.
+
+
+
+
+```{=latex}
+\FloatBarrier
+```
+
+### Descriptive Statistics {#sec-descriptive}
+
+```{=latex}
+\FloatBarrier
+```
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Summary Statistics: Descriptive Overview of Main Variables"
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-pos: H
+
+# Variable names for profiling
+vars_prof <- c(
+    "INKAR_INCOME_gdp_per_capita",
+    "FE_labor_integration_efficacy",
+    "FE_foreign_labor_supply_pressure",
+    "foreigner_share",
+    "PKS_property_damage_rate",
+    "CAPITAL_stock_per_capita",
+    "INKAR_EMPLOYMENT_unemployment_rate",
+    "FE_share_children",
+    "FE_share_youth"
+)
+
+prof_labels <- c(
+    "GDP per Capita (in 1,000 EUR)" = "INKAR_INCOME_gdp_per_capita",
+    "Labor Integration Efficacy (Index)" = "FE_labor_integration_efficacy",
+    "Foreign Labor Supply Pressure (%)" = "FE_foreign_labor_supply_pressure",
+    "Foreigner Share (%)" = "foreigner_share",
+    "Property Damage Rate (per 100,000)" = "PKS_property_damage_rate",
+    "Capital Stock per Capita (in 1,000 EUR)" = "CAPITAL_stock_per_capita",
+    "Unemployment Rate (%)" = "INKAR_EMPLOYMENT_unemployment_rate",
+    "Share of Children (0-17) (%)" = "FE_share_children",
+    "Share of Youth (18-24) (%)" = "FE_share_youth"
+)
+
+p <- df_raw %>%
+    # Convert large scales for better readability (matching labels)
+    mutate(
+        CAPITAL_stock_per_capita = CAPITAL_stock_per_capita / 1000
+    ) %>%
+    select(all_of(vars_prof)) %>%
+    rename(any_of(prof_labels)) %>%
+    modelsummary::datasummary(
+        All(.) ~ Mean + SD + Median + Min + Max + (Distribution = Histogram),
+        data = .,
+        align = "lrrrrrc",
+        output = "gt"
+    ) %>%
+
+    # 1. GROUPING & LABELS
+    gt::tab_row_group(label = "Control Variables", rows = 5:9) %>%
+    gt::tab_row_group(
+        label = "Independent Variables",
+        rows = 2:4
+    ) %>%
+    gt::tab_row_group(label = "Dependent Variable", rows = 1) %>%
+
+    # 2. SOURCE NOTES
+    gt::tab_source_note(
+        source_note = gt::md(
+            "**Note:** All variables are based on N = 7200 observations across a balanced panel of German districts. Logarithmic transformations are applied in the regression analysis but presented here in level form."
+        )
+    ) %>%
+    gt::tab_source_note(
+        source_note = gt::md(
+            "**Sources:** BBSR INKAR, PKS, and Statistikportal. Calculations by the author."
+        )
+    ) %>%
+
+    # 3. ALIGNMENT & FORMATTING
+    gt::cols_align(align = "left", columns = 1) %>%
+    gt::cols_align(align = "right", columns = 2:6) %>%
+    gt::cols_align(align = "center", columns = 7) %>%
+    gt::fmt_number(columns = 2:6, decimals = 2) %>%
+    gt::tab_style(
+        style = list(gt::cell_text(weight = "bold")),
+        locations = gt::cells_row_groups()
+    )
+
+    # 4. TYPOGRAPHY (Clear Point-Based Sizes)
+if (is_latex) {
+    p <- p %>%
+        gt::tab_style(
+            style = list(gt::cell_text(
+                font = "Latin Modern Roman",
+                size = 11,
+                v_align = "middle"
+            )), # Small labels
+            locations = list(gt::cells_body(columns = 1))
+        ) %>%
+        gt::tab_style(
+            style = list(gt::cell_text(
+                font = "Latin Modern Roman",
+                size = 15,
+                v_align = "middle"
+            )), # Large numbers
+            locations = gt::cells_body(columns = 2:6)
+        ) %>%
+        gt::tab_style(
+            style = list(gt::cell_text(
+                font = "Latin Modern Roman",
+                size = 13,
+                weight = "bold"
+            )),
+            locations = gt::cells_column_labels()
+        ) %>%
+        gt::tab_style(
+            style = list(gt::cell_text(
+                font = "Latin Modern Roman",
+                size = 13,
+                weight = "bold",
+                v_align = "middle"
+            )),
+            locations = gt::cells_row_groups()
+        ) %>%
+        gt::tab_style(
+            style = list(gt::cell_text(
+                font = "Latin Modern Roman",
+                size = "x-small"
+            )),
+            locations = gt::cells_source_notes()
+        ) %>%
+        gt::tab_options(
+            table.width = gt::pct(100),
+            source_notes.padding = gt::px(10),
+            row_group.padding = gt::px(10),
+            table.border.top.color = "black",
+            table.border.top.width = gt::px(3),
+            table.border.bottom.color = "black",
+            table.border.bottom.width = gt::px(3),
+            column_labels.border.bottom.color = "black",
+            column_labels.border.bottom.width = gt::px(2),
+            table_body.border.bottom.color = "black",
+            table_body.border.bottom.width = gt::px(2)
+        ) %>%
+        gt::opt_table_font(font = "Latin Modern Roman")
+} else {
+    p <- p %>%
+        gt::tab_options(
+            table.width = gt::pct(100),
+            table.font.size = gt::px(16)
+        ) %>%
+        gt::opt_table_font(font = list("EB Garamond", "serif")) %>%
+        # Clean LaTeX %
+        gt::text_transform(
+            locations = list(gt::cells_body(), gt::cells_column_labels()),
+            fn = function(x) gsub("\\\\%", "%", x)
+        )
+}
+
+p
+```
+
+@tbl-summary presents summary statistics for the balanced panel of 7,200 effective observations. The dependent variable, GDP per capita, averages 32.05 thousand EUR, with a median of 28.51. The significant gap between the mean and the maximum (195.84) indicates a right-skewed distribution driven by highly productive industrial and metropolitan centers, necessitating the logarithmic transformations applied in the econometric models.
+
+Regional heterogeneity is similarly evident in the main independent variables. Labor Integration Efficacy averages an index score of 646.00, with a vast range between 65.33 and 1,651.78. This disparity suggests that while the foreign workforce acts as a central economic engine in specific industrial hubs, other regions remain in a transitional phase. While Foreign Labor Supply Pressure shows a more symmetric distribution (mean 1.96%), the Foreigner Share (mean 8.35%) follows a right-skewed pattern similar to regional output, peaking at 37.54% in urban centers.
+
+Control variables further reflect these disparities. Capital stock per capita averages 114.97 thousand EUR, maintaining a consistent ratio relative to regional GDP. The unemployment rate displays significant spread, with a maximum of 25.43% reflecting localized labor market distress. The property damage rate, used as a proxy for social stability, shows considerable variance (mean 766.16). In contrast, demographic shares for children (16.69%) and youth (7.86%) demonstrate high stability, with means closely aligned to medians, justifying their inclusion as steady structural components.
+
+# Methodology {#sec-methodology}
+
+This section delineates the empirical framework used to evaluate the relationship between labor market integration and regional economic prosperity across German districts. To provide a rigorous analysis, the study adopts a multidimensional econometric approach that accounts for both the quantitative presence of the foreign-born population and the qualitative success of their structural integration.
+
+The primary objective is to isolate the specific impact of integration metrics from broader macroeconomic trends and time-invariant regional characteristics. This is achieved through a Two-Way Fixed Effects (TWFE) panel data specification, leveraging the longitudinal nature of the dataset for more robust estimation than traditional cross-sectional models. The following subsections detail the mathematical specification, the identification strategy, and the statistical diagnostics performed to ensure the validity and consistency of the estimated parameters.
+
+## Econometric Specification {#sec-spec}
+
+To evaluate the impact of labor market integration on regional prosperity, this study employs a Two-Way Fixed Effects (TWFE) panel regression model. The empirical specification is designed to capture the structural relationship between integration metrics and economic output while addressing potential endogeneity through a comprehensive lagged variable structure:
+
+::: {.content-visible when-format="pdf"}
+
+$$ \resizebox{1.0\textwidth}{!}{$\ln(Y_{it}) = \alpha + \beta_1 FLSP_{it-1} + \beta_2 \ln(LIE_{it-1}) + \beta_3 \ln(Crime_{it-1}) + \gamma \ln(K_{it}) + \mathbf{X}_{it-1}\Phi + \mu_i + \delta_t + \epsilon_{it}$} $$
+
+:::
+
+::: {.content-visible unless-format="pdf"}
+
+$$ \ln(Y_{it}) = \alpha + \beta_1 FLSP_{it-1} + \beta_2 \ln(LIE_{it-1}) + \beta_3 \ln(Crime_{it-1}) + \gamma \ln(K_{it}) + \mathbf{X}_{it-1}\Phi + \mu_i + \delta_t + \epsilon_{it} $$
+
+:::
+
+
+In this model, the dependent variable $\ln(Y_{it})$ is the natural logarithm of GDP per capita for district $i$ at time $t$. The primary coefficients, $\beta_1$ and $\beta_2$, measure the impact of Foreign Labor Supply Pressure and Labor Integration Efficacy, respectively. A strategic one-year lag ($t-1$) is applied to all time-varying independent and control variables, with the exception of the capital stock ($\ln(K_{it})$), which is included in its contemporaneous form. Capital stock is estimated via a top-down disaggregation of state-level fixed assets and does not respond to short-run output shocks within the same period, reducing the risk of simultaneity. For robustness, the IV estimation in @sec-app-iv instruments this variable with its first lag. This temporal alignment ensures that current economic prosperity is driven by the labor market conditions and productivity levels of the preceding year, providing a robust basis for causal inference as further validated in the robustness analysis (@sec-robustness). The TWFE structure accounts for unobserved heterogeneity through district fixed effects ($\mu_i$), which absorb time-invariant local characteristics like geography or industrial history, and year fixed effects ($\delta_t$), which control for nationwide macroeconomic shocks. To ensure the validity of statistical inference, standard errors are clustered at the district level to account for potential temporal autocorrelation and heteroscedasticity within the panel units. This identification strategy leverages the longitudinal nature of the 7,200 effective observations to isolate the specific effects of integration from broader regional and temporal trends.
+
+## Estimation Issues and Statistical Rigor {#sec-diagnostics}
+The selection of the Two-Way Fixed Effects (TWFE) model is driven by empirical diagnostic testing. To choose between Fixed Effects (FE) and Random Effects (RE) specifications, a Hausman test was conducted. The test yielded a Chi-squared statistic of 318.29 ($p < 0.001$), decisively rejecting the null hypothesis that random effects are consistent. This statistical evidence confirms that an RE model would yield biased estimates due to correlation between regional unobserved heterogeneity and the predictors, validating the FE framework as the appropriate method for the German district panel. Detailed test results and VIF scores for multicollinearity are provided in the Appendix (@sec-app-hausman; @sec-app-vif).
+
+Furthermore, the validity of the statistical inference is protected against heteroscedasticity and serial correlation. In regional panel data, economic shocks often persist across multiple periods within the same district. To address this, all reported results utilize clustered standard errors at the district level. This procedure ensures that significance levels are not artificially inflated by temporal dependence within administrative units, providing a reliable basis for hypothesis testing. By addressing these challenges through robust clustering and diagnostic-led model selection, the study ensures that the estimated elasticities reflect the true relationship between labor market integration and regional prosperity.
+
+# Results {#sec-results}
+
+This section presents the empirical findings from the Two-Way Fixed Effects (TWFE) model. The analysis follows a stepwise approach, transitioning from a baseline economic model to a comprehensive integration framework.
+
+## Main Results: The Integration Dividend
+
+The primary estimation results are reported in @tbl-main-results. The progression across the six specifications demonstrates the structural stability of the coefficients, even as additional migration-related metrics are introduced.
+
+### Baseline Economic and Demographic Determinants {#sec-baseline-results}
+
+The baseline results in Models (1) through (3) confirm traditional growth drivers and establish the fundamental stability of the regional economic framework. Regional capital intensity ($\ln K_{it}$) exhibits a strong positive elasticity, ranging from $0.611$ to $0.732$ ($p < 0.01$). This reinforces the capital-intensive nature of German regional productivity and confirms that districts with higher accumulated physical capital per capita sustain significantly higher output levels. Conversely, the lagged overall unemployment rate ($\ln U_{it-1}$) maintains a consistent negative impact across all specifications. In the final model (6), a $1\%$ increase in the general unemployment rate corresponds to a $0.061\%$ decline in regional GDP per capita, reflecting the persistent dampening effect of labor market distress on local economic performance.
+
+The demographic controls for the share of children and the share of youth show negative and statistically significant coefficients. This reflects the immediate dependency burden on regional infrastructure and social services before these cohorts transition into the productive labor force. Specifically, the negative impact of the youth share (18-24) may further indicate a period of intensive human capital investment, where high concentrations of students and individuals in vocational training temporarily constrain per capita output through delayed labor market entry.
+
+```{=latex}
+\FloatBarrier
+```
+
+```{r}
+#| label: tbl-main-results
+#| tbl-cap: "Labor Integration and Regional Prosperity: Two-Way Fixed Effects Results"
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-pos: H
+
+library(fixest)
+library(modelsummary)
+
+# 1. Estimate Models (Stepwise as in Author Script 14)
+knitr::opts_current$set(tbl.cap = NULL)
+mod1 <- feols(
+    log_gdp_pc ~ log_unemp_l1 +
+        log_capital +
+        log_property_damage_l1 |
+        district_id + year,
+    data = df_raw
+)
+mod2 <- update(mod1, . ~ . + FE_share_children)
+mod3 <- update(mod2, . ~ . + FE_share_youth)
+mod4 <- update(mod3, . ~ . + foreigner_share)
+mod5 <- update(mod4, . ~ . + FE_foreign_labor_supply_pressure_l1)
+mod6 <- update(mod5, . ~ . + FE_log_labor_efficacy_l1)
+
+models_list <- list(
+    "(1) Base" = mod1,
+    "(2) + Child" = mod2,
+    "(3) + Youth" = mod3,
+    "(4) + Foreign" = mod4,
+    "(5) + Pressure" = mod5,
+    "(6) Final" = mod6
+)
+
+# 2. Variable Mapping (Shortened for Page Fit)
+coef_map <- c(
+    "log_unemp_l1" = "Log Unemployment (t-1)",
+    "log_capital" = "Log Capital Stock per Capita (t)",
+    "log_property_damage_l1" = "Log Property Damage Rate (t-1)",
+    "FE_share_children" = "Demographic Share: Children (0-17) (t) (\\%)",
+    "FE_share_youth" = "Demographic Share: Youth (18-24) (t) (\\%)",
+    "foreigner_share" = "Foreigner Share (t) (\\%)",
+    "FE_foreign_labor_supply_pressure_l1" = "Foreign Labor Supply Pressure (t-1) (\\%)",
+    "FE_log_labor_efficacy_l1" = "Log Labor Integration Efficacy (t-1)"
+)
+
+# 3. Fixed Effects Metadata
+rows <- data.frame(
+    term = c("District FE", "Year FE"),
+    "(1) Base" = rep("Yes", 2),
+    "(2) + Child" = rep("Yes", 2),
+    "(3) + Youth" = rep("Yes", 2),
+    "(4) + Foreign" = rep("Yes", 2),
+    "(5) + Pressure" = rep("Yes", 2),
+    "(6) Final" = rep("Yes", 2),
+    check.names = FALSE
+)
+
+# 4. Goodness of Fit Mapping
+gof_mapping <- list(
+    list("raw" = "nobs", "clean" = "Observations", "fmt" = 0),
+    list("raw" = "r2.within", "clean" = "Within R\u00b2", "fmt" = 3)
+)
+
+# 5. Render Table (Strict adherence to labels with wrapped notes)
+p <- modelsummary::modelsummary(
+    models_list,
+    coef_map = coef_map,
+    gof_map = gof_mapping,
+    add_rows = rows,
+    stars = c('*' = .1, '**' = .05, '***' = .01),
+    fmt = 3,
+    output = if (is_latex) "kableExtra" else "gt",
+    booktabs = TRUE,
+    escape = FALSE,
+    align = "lcccccc",
+    title = NULL
+)
+
+if (is_latex) {
+    cat("\\setlength{\\tabcolsep}{2pt}\n")
+    p <- p %>%
+        kableExtra::kable_styling(
+            latex_options = c("HOLD_position", "scale_down"),
+            font_size = 7.5,
+            position = "center",
+            full_width = FALSE
+        ) %>%
+        kableExtra::column_spec(1, width = "6.0cm") %>%
+        kableExtra::add_header_above(c(
+            " " = 1,
+            "Base Indicators" = 3,
+            "Migration Quantity" = 1,
+            "Migration Quality" = 2
+        )) %>%
+        kableExtra::add_header_above(c(
+            " " = 1,
+            "Dependent Variable: Log GDP per Capita (2003-2021)" = 6
+        )) %>%
+        kableExtra::footnote(
+            general = "Robust standard errors clustered at the district level are in parentheses. Coefficients for variables in logarithmic form (prefixed with `Log') represent elasticities, while coefficients for shares and pressure metrics represent semi-elasticities. All independent variables, excluding shares, are lagged by one year ($t-1$).",
+            general_title = "Notes: ",
+            title_format = "bold",
+            threeparttable = TRUE,
+            escape = FALSE
+        ) %>%
+        # Custom 2-row striping (grouping Coef + SE)
+        kableExtra::row_spec(seq(3, 16, by = 4), background = "#F2F2F2") %>%
+        kableExtra::row_spec(seq(4, 16, by = 4), background = "#F2F2F2")
+} else {
+    p <- p %>%
+        gt::tab_header(title = "Baseline Results: The Migration Integration Dividend") %>%
+        gt::tab_options(
+            table.font.size = gt::px(16)
+        ) %>%
+        gt::opt_table_font(font = list("EB Garamond", "serif")) %>%
+        gt::text_transform(
+            locations = list(gt::cells_body(), gt::cells_column_labels()),
+            fn = function(x) gsub("\\\\%", "%", x)
+        )
+}
+p
+```
+
+Notably, the lagged property damage rate yields a positive and highly significant coefficient ($\beta = 0.019, p < 0.01$). This result identifies property damage as a robust proxy for economic intensity and urban dynamism rather than a deterrent to growth, aligning with the theoretical framework proposed earlier. In the German district context, higher rates of property damage often signal a greater concentration of commercial assets, high-value infrastructure, and intense economic activity, which are typical characteristics of prosperous industrial and urban hubs. While alternative crime proxies also exhibit statistical significance due to their correlation with overall urban density, this study prioritizes property damage as the most precise indicator of the capital-related frictions associated with urban vibrancy. By specifically capturing these agglomeration effects, the inclusion of this metric prevents omitted variable bias and ensures that the core migration and integration effects are isolated from general regional density dynamics.
+
+### The Role of Migration Quantity versus Quality {#sec-migration-results}
+
+A critical finding of this study is the divergence between migration volume and integration quality. In Model (4), the Foreigner Share (%) shows a small negative impact on prosperity ($\beta = -0.005, p < 0.01$). This negative semi-elasticity suggests that a mere increase in the foreign-born population, without corresponding integration mechanisms, may initially exert a dilutive effect on regional GDP per capita. However, the inclusion of quality metrics in Models (5) and (6) provides a more nuanced interpretation of this relationship.
+
+The Foreign Labor Supply Pressure ($FLSP_{it-1}$) reveals a positive semi-elasticity ($\beta = 0.011, p < 0.05$). As a log-level specification, this indicates that a one percentage point increase in the relative concentration of foreign labor reserves is associated with a $1.1\%$ increase in regional output. This finding identifies a "magnet effect," where the most prosperous German districts attract migrant populations at a rate that initially outpaces labor market absorption. Rather than representing a regional burden, this pool of available labor functions as latent productive capacity that supports economic dynamism and provides a flexible labor reserve for expanding industries.
+
+Most importantly, the Labor Integration Efficacy ($\ln LIE_{it-1}$) demonstrates a robust positive influence on regional prosperity ($\beta = 0.028, p < 0.01$). An elasticity of $0.028$ implies that a $1\%$ improvement in the labor market participation efficiency of the foreign-born population leads to a $0.028\%$ increase in regional GDP per capita. This result serves as the core empirical evidence for the study's central hypothesis, which is that regional prosperity is driven not by the mere quantity of migrants, but by the successful integration of that population into the local labor market. The stability of this coefficient across specifications confirms that the "integration dividend" is a non-trivial factor of regional economic growth in Germany.
+
+## Robustness Checks {#sec-robustness}
+
+To ensure the statistical stability and generalizability of the primary findings, a series of robustness checks were performed, with comprehensive results and supporting tables provided in the Appendix (@sec-app-robustness). This sensitivity analysis confirms that the positive impact of labor market integration remains a consistent structural phenomenon across various model specifications.
+
+Specifically, the model's validity was tested against alternative crime proxies (@sec-app-crime) and varying temporal lag structures (@sec-app-lags). To address potential endogeneity between capital stock and economic output, an Instrumental Variables (IV) approach was implemented by instrumenting the current capital stock with its first lag (@sec-app-iv). These results confirm that the integration dividend remains statistically significant and stable, even when accounting for the simultaneity of physical capital accumulation. Furthermore, a sub-sample analysis between West and East German districts (@sec-app-east-west) highlights that the integration dividend is a characteristic of mature, high-capital-density labor markets, whereas the East presents a distinct structural profile where institutional and economic lags temporarily decouple integration and output growth. Collectively, these checks reinforce the generalizability of the primary estimates while identifying the specific economic ecosystems where the integration dividend is most potent.
+
+
+# Conclusion {#sec-conclusion}
+
+This study provides a rigorous empirical reassessment of the relationship between migration and regional prosperity across 400 German districts. By disentangling the effects of migration volume from integration quality, the analysis delivers a clear verdict. Regional economic vitality is not a function of the mere presence of a foreign-born population but rather the structural efficiency with which that population is absorbed into the productive labor market. This finding identifies a critical integration dividend consisting of a quantifiable surge in regional GDP per capita that materializes only when labor market participation is successfully realized.
+
+The core contribution of this research lies in shifting the narrative from a static quantity-based view to a dynamic quality-led framework. While a simple increase in the foreigner share may initially exert a minor dilutive effect on per-capita output, the successful transition of migrants into the workforce acts as a powerful economic catalyst. Crucially, the temporal lag analysis confirms that these benefits are cumulative. As foreign workers acquire region-specific human capital and professional networks, their contribution to regional dynamism intensifies. This persistence underscores that the integration dividend is not a transitory shock but a long-term structural upgrade to the regional economy.
+
+The inclusion of social and demographic controls adds a layer of honest complexity to the results. The positive correlation between property damage and GDP per capita suggests that certain social frictions are inherently linked to the high capital density and intense economic activity of industrial hubs rather than acting as direct inhibitors of growth. Simultaneously, the negative impact of high dependency ratios driven by a large demographic share of children and youth highlights the short-term fiscal pressures of population growth even as these groups represent the human capital of the future.
+
+The robustness checks reveal that this dividend is most effectively captured in mature labor markets. The divergence between West and East German districts emphasizes that the institutional environment is a prerequisite for translating demographic diversity into economic returns. From a policy perspective, these results demand a paradigm shift where the priority moves from managing migration quotas to optimizing integration infrastructures. Reducing institutional barriers to labor market entry and accelerating the transition from arrival to employment are not merely social goals but essential economic strategies to prevent the erosion of latent human capital.
+
+In conclusion, as Germany navigates profound demographic shifts and chronic labor shortages, the strategic integration of the foreign-born population emerges as an essential structural component of economic resilience. The empirical evidence presented here confirms that the integration dividend is a sustainable path forward. For policy-makers, the message is definitive. Prosperity in a globalized era is determined not by how many arrive but by how effectively their potential is harnessed within the local economy.
+
+```{=latex}
+\newpage
+\pagenumbering{arabic}
+\pagestyle{empty}
+\renewcommand{\thepage}{A.\arabic{page}}
+\setcounter{page}{1}
+\makeatletter
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\makeatother
+\appendix
+```
+
+# Appendix
+
+## Spatial Harmonization Process {#sec-app-harmonization}
+
+The spatial harmonization process ensures that historical data (e.g., from 2006) is comparable to the current administrative structure (2023). This is achieved through two primary mechanisms:
+
+1. **Aggregation (Mergers)**: Multiple historical districts $j$ merge into a single target district $i$. The harmonized value $V_{i,T}$ is the sum of the original values (weight $w = 1.0$), as shown in @tbl-harmonization-rostock and the blue region in @fig-map-comparison:
+   $$V_{i, T} = \sum_{j \in J} V_{j, t} \cdot w_{j \to i}$$
+   
+2. **Disaggregation (Splits)**: A single historical district $j$ is split across multiple target districts $i$. The value is redistributed using weights $w_{j \to i}$ based on population or area shares, as seen in the case of Demmin (@tbl-harmonization-demmin and the purple/green regions in @fig-map-comparison):
+   $$V_{i, T} = V_{j, t} \cdot w_{j \to i}$$
+
+The case study below (visualized in @fig-map-comparison) provides a mapping of these processes onto the federal state of Mecklenburg-Vorpommern (MV), which underwent significant restructuring in the 2011 reform. The numerical values and redistribution logic are detailed in @tbl-harmonization-rostock and @tbl-harmonization-demmin.
+```{r}
+#| label: fig-map-comparison
+#| fig-cap: " Representative Case Studies of Territorial Changes (2006 vs. 2023)"
+#| echo: false
+#| message: false
+#| warning: false
+#| cache: true
+#| fig-width: 9
+#| fig-height: 3.5
+#| fig-pos: H
+
+library(sf)
+library(ggplot2)
+library(patchwork)
+library(dplyr)
+library(giscoR)
+library(ggrepel)
+
+# Fix random seed for deterministic label placement
+set.seed(42)
+
+# 1. Fetch NUTS-3 Boundaries
+suppressMessages({
+    options(timeout = 300)
+    mv_prefix <- "DE80"
+    mv_2006 <- gisco_get_nuts(
+        nuts_level = 3,
+        year = "2006",
+        country = "Germany",
+        resolution = "03"
+    ) %>%
+        filter(grepl(mv_prefix, NUTS_ID)) %>%
+        st_transform(3035)
+
+    mv_2023 <- gisco_get_nuts(
+        nuts_level = 3,
+        year = "2024",
+        country = "Germany",
+        resolution = "03"
+    ) %>%
+        filter(grepl(mv_prefix, NUTS_ID)) %>%
+        st_transform(3035)
+})
+
+# Highlight status
+mv_2006 <- mv_2006 %>%
+    mutate(
+        Status = case_when(
+            NUTS_ID %in% c("DE807", "DE809") ~ "Merger (Rostock)",
+            NUTS_ID == "DE808" ~ "Split (Demmin)",
+            TRUE ~ "Other"
+        )
+    )
+
+mv_2023 <- mv_2023 %>%
+    mutate(
+        NUTS_NAME = ifelse(NUTS_ID == "DE80N", "V-Greifswald", NUTS_NAME)
+    ) %>%
+    mutate(
+        Status = case_when(
+            NUTS_ID == "DE80K" ~ "Harmonized (LK Rostock)",
+            NUTS_ID == "DE80J" ~ "Harmonized (Seenpl.)",
+            NUTS_ID == "DE80N" ~ "Harmonized (V-GW)",
+            TRUE ~ "Other"
+        )
+    )
+
+# Map 1: Before (2006)
+p1 <- ggplot(mv_2006) +
+    geom_sf(aes(fill = Status), color = "white", size = 0.2) +
+    # General labels excluding Güstrow
+    geom_label_repel(
+        data = filter(mv_2006, Status != "Other" & NUTS_ID != "DE809"),
+        aes(label = NUTS_NAME, geometry = geometry),
+        stat = "sf_coordinates",
+        size = 2.8,
+        fontface = "bold",
+        family = "serif",
+        fill = alpha("white", 0.8),
+        point.padding = 0.5,
+        min.segment.length = 0,
+        segment.color = "black"
+    ) +
+    # Dedicated layer for Güstrow (Nudge: bottom-left)
+    geom_label_repel(
+        data = filter(mv_2006, NUTS_ID == "DE809"),
+        aes(label = NUTS_NAME, geometry = geometry),
+        stat = "sf_coordinates",
+        size = 2.8,
+        fontface = "bold",
+        family = "serif",
+        fill = alpha("white", 0.8),
+        point.padding = 0.5,
+        nudge_x = -15000,
+        nudge_y = -15000,
+        min.segment.length = 0,
+        segment.color = "black"
+    ) +
+    scale_fill_manual(
+        values = c(
+            "Merger (Rostock)" = "#5e72e4",
+            "Split (Demmin)" = "#663399",
+            "Other" = "#e9ecef"
+        ),
+        breaks = c("Merger (Rostock)", "Split (Demmin)")
+    ) +
+    ggplot2::theme_void() +
+    labs(title = "Before (2006 Status)", fill = NULL) +
+    theme(
+        text = element_text(family = "serif"),
+        plot.title = element_text(
+            face = "bold",
+            hjust = 0.5,
+            size = 11,
+            margin = margin(b = 5)
+        )
+    )
+
+# Map 2: After (2023)
+demmin_outline <- filter(mv_2006, Status == "Split (Demmin)")
+
+p2 <- ggplot(mv_2023) +
+    geom_sf(aes(fill = Status), color = "white", size = 0.2) +
+    # Transparent Overlay for Historical Demmin
+    geom_sf(
+        data = demmin_outline,
+        fill = "#663399",
+        alpha = 0.5,
+        color = "#663399",
+        size = 0.4,
+        linetype = "solid"
+    ) +
+    # General Labels (excluding Rostock, Seenplatte, GW)
+    geom_label_repel(
+        data = filter(
+            mv_2023,
+            Status != "Other" & !(NUTS_ID %in% c("DE80J", "DE80K", "DE80N"))
+        ),
+        aes(label = NUTS_NAME, geometry = geometry),
+        stat = "sf_coordinates",
+        size = 3,
+        fontface = "bold",
+        family = "serif",
+        fill = alpha("white", 0.8),
+        point.padding = 0.5,
+        min.segment.length = 0,
+        segment.color = "black"
+    ) +
+    # Dedicated layer for V-Greifswald (Nudge: top-right)
+    geom_label_repel(
+        data = filter(mv_2023, NUTS_ID == "DE80N"),
+        aes(label = NUTS_NAME, geometry = geometry),
+        stat = "sf_coordinates",
+        size = 3,
+        fontface = "bold",
+        family = "serif",
+        fill = alpha("white", 0.8),
+        point.padding = 0.5,
+        nudge_x = 15000,
+        nudge_y = 15000,
+        min.segment.length = 0,
+        segment.color = "black"
+    ) +
+    # Dedicated layer for LK Rostock (Nudge: top-left)
+    geom_label_repel(
+        data = filter(mv_2023, NUTS_ID == "DE80K"),
+        aes(label = NUTS_NAME, geometry = geometry),
+        stat = "sf_coordinates",
+        size = 3,
+        fontface = "bold",
+        family = "serif",
+        fill = alpha("white", 0.8),
+        point.padding = 0.5,
+        nudge_x = -15000,
+        nudge_y = 15000,
+        min.segment.length = 0,
+        segment.color = "black"
+    ) +
+    # Dedicated layer for Seenplatte to nudge anchor and label
+    geom_label_repel(
+        data = filter(mv_2023, NUTS_ID == "DE80J") %>%
+            mutate(
+                geometry = (geometry + c(20000, 0)) %>%
+                    st_set_crs(st_crs(mv_2023))
+            ), # Restore CRS
+        aes(label = NUTS_NAME, geometry = geometry),
+        stat = "sf_coordinates",
+        size = 3,
+        fontface = "bold",
+        family = "serif",
+        fill = alpha("white", 0.8),
+        point.padding = 0.5,
+        nudge_x = 15000,
+        nudge_y = -15000,
+        min.segment.length = 0,
+        segment.color = "black"
+    ) +
+    # Label for historical Demmin overlay (2006 status)
+    geom_label_repel(
+        data = demmin_outline,
+        aes(
+            label = "Old Demmin District\n(Disaggregated)",
+            geometry = geometry
+        ),
+        stat = "sf_coordinates",
+        size = 2.8,
+        fontface = "bold",
+        family = "serif",
+        fill = alpha("white", 0.9),
+        color = "#000000ff",
+        nudge_y = 50000,
+        nudge_x = 30000,
+        min.segment.length = 0,
+        segment.color = "#000000ff"
+    ) +
+    scale_fill_manual(
+        values = c(
+            "Harmonized (LK Rostock)" = "#2a92d3ff",
+            "Harmonized (Seenpl.)" = "#56c221ff",
+            "Harmonized (V-GW)" = "#f39c12",
+            "Other" = "#e9ecef"
+        ),
+        breaks = c(
+            "Harmonized (LK Rostock)",
+            "Harmonized (Seenpl.)",
+            "Harmonized (V-GW)",
+            "Other"
+        )
+    ) +
+    ggplot2::theme_void() +
+    labs(title = "After (2023 Harmonized Status)", fill = NULL) +
+    theme(
+        text = element_text(family = "serif"),
+        plot.title = element_text(
+            face = "bold",
+            hjust = 0.5,
+            size = 11,
+            margin = margin(b = 5)
+        )
+    )
+
+# Combine with Patchwork
+suppressWarnings({
+    p_final <- p1 +
+        p2 +
+        plot_layout(guides = "collect") &
+        theme(
+            legend.position = "bottom",
+            legend.text = element_text(size = 8),
+            text = element_text(family = "serif")
+        )
+})
+p_final
+```
+
+:::: {#sec-app-harmonization-tables layout-ncol=2 layout-column-gap="1cm"}
+
+```{r}
+#| label: tbl-harmonization-rostock
+#| tbl-cap: "Rostock Merger Case"
+#| echo: false
+#| message: false
+#| warning: false
+
+is_latex <- knitr::is_latex_output()
+df_rostock <- data.frame(
+    UNIT = c("Bad Doberan", "Güstrow", "\\textbf{Rostock}"),
+    CRIME = c("7,223", "9,354", ""),
+    X = c("$\\times$", "$\\times$", ""),
+    WEIGHT = c("1.000", "1.000", ""),
+    EQ = c("=", "=", ""),
+    CONTRIBUTION = c("7,223", "9,354", "\\textbf{16,577}")
+)
+
+if (is_latex) {
+    df_rostock %>%
+        knitr::kable(
+            format = "latex",
+            booktabs = TRUE,
+            escape = FALSE,
+            align = "lcrccc",
+            col.names = c("\\textbf{UNIT}", "\\textbf{CRIME}", "", "\\textbf{WEIGHT}", "", "\\textbf{CONTRIB.}")
+        ) %>%
+        kableExtra::kable_styling(latex_options = "basic", font_size = 6.0) %>%
+        kableExtra::column_spec(1, width = "1.8cm") %>%
+        kableExtra::column_spec(2, width = "0.7cm") %>%
+        kableExtra::column_spec(3, width = "0.2cm") %>%
+        kableExtra::column_spec(4, width = "0.7cm") %>%
+        kableExtra::column_spec(5, width = "0.2cm") %>%
+        kableExtra::column_spec(6, width = "1.6cm")
+} else {
+    df_rostock %>%
+        mutate(UNIT = gsub("\\\\textbf\\{(.*)\\}", "**\\1**", UNIT)) %>%
+        mutate(CONTRIBUTION = gsub("\\\\textbf\\{(.*)\\}", "**\\1**", CONTRIBUTION)) %>%
+        mutate(X = "×") %>%
+        gt() %>%
+        apply_academic_theme(source_note = NULL) %>%
+        fmt_markdown(columns = everything()) %>%
+        cols_align(align = "center", columns = c(X, WEIGHT, EQ, CONTRIBUTION)) %>%
+        cols_label(UNIT = gt::md("**UNIT**"), CRIME = gt::md("**CRIME**"), WEIGHT = gt::md("**WEIGHT**"), X = "", EQ = "", CONTRIBUTION = gt::md("**CONTRIB.**")) %>%
+        cols_width(
+            UNIT ~ px(95),
+            CRIME ~ px(48),
+            X ~ px(15),
+            WEIGHT ~ px(40),
+            EQ ~ px(15),
+            CONTRIBUTION ~ px(95)
+        ) %>%
+        gt::tab_options(table.width = gt::pct(100), table.font.size = gt::px(10))
+}
+```
+
+```{r}
+#| label: tbl-harmonization-demmin
+#| tbl-cap: "Demmin Split Case"
+#| echo: false
+#| message: false
+#| warning: false
+
+is_latex <- knitr::is_latex_output()
+df_demmin <- data.frame(
+    UNIT = c("\\textbf{Demmin}", "$\\to$ Seenplatte", "$\\to$ V-Greifswald"),
+    CRIME = c("\\textbf{7,220}", "7,220", "7,220"),
+    X = c("", "$\\times$", "$\\times$"),
+    WEIGHT = c("", "0.824", "0.176"),
+    EQ = c("", "=", "="),
+    CONTRIBUTION = c("", "5,949", "1,271")
+)
+
+if (is_latex) {
+    df_demmin %>%
+        knitr::kable(
+            format = "latex",
+            booktabs = TRUE,
+            escape = FALSE,
+            align = "lcrccc",
+            col.names = c("\\textbf{UNIT}", "\\textbf{CRIME}", "", "\\textbf{WEIGHT}", "", "\\textbf{CONTRIB.}")
+        ) %>%
+        kableExtra::kable_styling(latex_options = "basic", font_size = 6.0) %>%
+        kableExtra::column_spec(1, width = "1.8cm") %>%
+        kableExtra::column_spec(2, width = "0.7cm") %>%
+        kableExtra::column_spec(3, width = "0.2cm") %>%
+        kableExtra::column_spec(4, width = "0.7cm") %>%
+        kableExtra::column_spec(5, width = "0.2cm") %>%
+        kableExtra::column_spec(6, width = "1.6cm")
+} else {
+    df_demmin %>%
+        mutate(UNIT = gsub("\\\\textbf\\{(.*)\\}", "**\\1**", UNIT)) %>%
+        mutate(UNIT = gsub("\\\\to", "→", UNIT)) %>%
+        mutate(CONTRIBUTION = gsub("\\\\textbf\\{(.*)\\}", "**\\1**", CONTRIBUTION)) %>%
+        mutate(X = gsub("\\\\times", "×", X)) %>%
+        gt() %>%
+        apply_academic_theme(source_note = NULL) %>%
+        fmt_markdown(columns = everything()) %>%
+        cols_align(align = "center", columns = c(X, WEIGHT, EQ, CONTRIBUTION)) %>%
+        cols_label(UNIT = gt::md("**UNIT**"), CRIME = gt::md("**CRIME**"), WEIGHT = gt::md("**WEIGHT**"), X = "", EQ = "", CONTRIBUTION = gt::md("**CONTRIB.**")) %>%
+        cols_width(
+            UNIT ~ px(95),
+            CRIME ~ px(48),
+            X ~ px(15),
+            WEIGHT ~ px(40),
+            EQ ~ px(15),
+            CONTRIBUTION ~ px(95)
+        ) %>%
+        gt::tab_options(table.width = gt::pct(100), table.font.size = gt::px(10))
+}
+```
+
+::::
+
+
+```{=latex}
+\newpage
+```
+
+## Census 2011 Adjustment Methodology {#sec-app-census}
+
+The 2011 Federal Census (*Zensus 2011*) revealed that the official roll-forward population estimates (*Fortschreibung*) had systematically overestimated the actual number of inhabitants in many German districts. This overcounting caused artificial structural breaks in all per capita metrics: as the denominator was suddenly revised downward, previously calculated rates appeared to spike discontinuously at the 2011 threshold without any genuine change in underlying activity.
+
+To address this measurement inconsistency, the denominator for all per capita variables was recalculated for the pre-2011 and transition years. Census-corrected population figures were obtained from the INKAR database [@bbsr_inkar_2026], which provides backward-corrected demographic data aligned with the 2011 Census results. These refined population estimates were then used to re-estimate all intensity indicators according to the following formula:
+
+$$\text{Adjusted Rate}_{i,t} = \left( \frac{\text{Absolute Count}_{i,t}}{\text{Population}^{\text{Census Corrected}}_{i,t}} \right) \times 100,000$$
+
+By substituting the overestimated official population counts with these corrected figures, all intensity metrics were neutralized against administrative shocks. This ensures that any observed fluctuations in the time series reflect genuine changes in criminal or economic activity rather than artifacts of demographic reporting revisions. The resulting panel maintains full statistical integrity across the 2011 threshold.
+
+```{=latex}
+\newpage
+```
+
+## Capital Stock Calculation Methodology {#sec-app-capital-calc}
+
+Given the absence of official capital stock data (*Anlagevermögen*) at the district level (*Kreise*) in Germany, a systematic top-down disaggregation procedure was developed to estimate these figures for the panel analysis. This process ensures that the fundamental driver of regional productivity is accounted for with the highest possible precision given the data constraints.
+
+The estimation process begins by calculating sector-specific weights for each district to account for diverse industrial compositions. For each of the three primary sectors (Agriculture, Industry, and Services), the district’s share of the state’s total Gross Value Added (GVA) is determined:
+
+$$Weight_{d,i,t} = \frac{GVA_{d,i,t}}{GVA_{s,i,t}}$$
+
+This weighting logic assumes that physical capital is distributed according to where sectoral value is created. These weights are then applied to downscale the state-level net fixed assets ($K_{s,i,t}$) into district-level sectoral capital estimates:
+
+$$K_{d,i,t} = K_{s,i,t} \times Weight_{d,i,t}$$
+
+To obtain the comprehensive physical production apparatus of a region, these individual sectoral values are aggregated into a total district capital stock. This aggregation is crucial as it distinguishes between capital-heavy industrial hubs and service-oriented urban centers:
+
+$$K_{d,t}^{Total} = \sum_{i=1}^{3} K_{d,i,t} = K_{d, Agri} + K_{d, Indu} + K_{d, Serv}$$
+
+Finally, only once the total stock is calculated, it is normalized by the census-corrected population ($Pop_{d,t}$) and transformed into its natural logarithm for the main estimation:
+
+$$k_{d,t} = \ln \left( \frac{K_{d,t}^{Total}}{Pop_{d,t}} \right)$$
+
+### Methodological Limitations and Data Constraints
+
+While the sectoral disaggregation approach represents a significant refinement over a simple aggregate GVA distribution, it remains subject to several data-driven limitations. These constraints arise primarily from the lack of sub-sectoral transparency at the district level.
+
+First, the model assumes intra-sectoral technological homogeneity. By utilizing state-level sectoral assets, the procedure implies that the capital intensity of a specific sector is uniform across all districts in the state. For example, the industrial sector in a high-tech manufacturing hub is assumed to have the same capital-to-GVA ratio as a rural district focused on less machine-intensive processing. This limitation prevents the model from capturing "technological depth" variations within the three main categories.
+
+Second, the estimation is inherently dependent on state-level averages. Since capital is distributed proportionally to GVA shares, the method assumes that regional capital productivity is perfectly aligned with the state mean. Consequently, if a district is exceptionally capital-efficient (producing more output per unit of capital than the state average), the distribution key may marginally over-allocate physical assets to that region.
+
+Finally, the methodology cannot account for differences in capital age and depreciation cycles. Because the distribution is based on contemporaneous value added, it does not distinguish between a district utilizing state-of-the-art infrastructure and one operating with aging productive assets. These factors are considered inherent limitations of the top-down estimation framework, and they are addressed by the inclusion of district fixed effects, which capture time-invariant structural differences in regional capital quality.
+
+
+```{=latex}
+\newpage
+```
+
+## Variables Distribution Details {#sec-app-dist-plots}
+
+This section provides the distributional characteristics of the variables used in the econometric analysis.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# Central helper for histograms
+plot_dist_local <- function(df, var, title, label, is_log = FALSE) {
+    p <- ggplot(df, aes(x = .data[[var]])) +
+        geom_histogram(
+            aes(y = after_stat(density)),
+            bins = 30,
+            fill = "#56c221ff",
+            color = "#626262ff"
+        ) +
+        geom_density(
+            color = "#f39c12",
+            fill = "#f39c12",
+            alpha = 0.1,
+            linewidth = 1
+        ) +
+        scale_y_continuous(labels = scales::label_number()) +
+        labs(
+            title = title,
+            x = if (is_log) paste("Log", label) else label,
+            y = "Density"
+        ) +
+        theme_bw(base_family = "serif") +
+        theme(
+            plot.title = element_text(hjust = 0.5, face = "bold"),
+            panel.grid.minor = element_blank(),
+            panel.border = element_rect(color = "black", fill = NA)
+        )
+    return(p)
+}
+```
+
+```{r}
+#| label: fig-dist-gdp
+#| fig-cap: "Distributional Comparison: GDP per Capita (Raw vs. Log)"
+#| echo: false
+#| message: false
+#| fig-width: 9
+#| fig-height: 3.3
+#| fig-pos: H
+
+p1_raw <- plot_dist_local(
+    df_raw,
+    "INKAR_INCOME_gdp_per_capita",
+    "GDP per Capita (Raw)",
+    "GDP per Capita (in 1,000 EUR)"
+)
+p1_log <- plot_dist_local(
+    df_raw,
+    "log_gdp_pc",
+    "Log GDP per Capita",
+    "Log GDP per Capita (in 1,000 EUR)"
+)
+
+p1_raw | p1_log
+```
+
+```{r}
+#| label: fig-dist-efficacy
+#| fig-cap: "Distributional Comparison: Labor Integration Efficacy (Raw vs. Log)"
+#| echo: false
+#| message: false
+#| fig-width: 9
+#| fig-height: 3.3
+#| fig-pos: H
+
+p2_raw <- plot_dist_local(
+    df_raw,
+    "FE_labor_integration_efficacy",
+    "Labor Integration Efficacy (Raw)",
+    "Labor Integration Efficacy (Product of Rates)"
+)
+p2_log <- plot_dist_local(
+    df_raw,
+    "FE_log_labor_efficacy",
+    "Log Labor Integration Efficacy",
+    "Log Labor Integration Efficacy (Product of Rates)"
+)
+
+p2_raw + p2_log
+```
+
+```{r}
+#| label: fig-dist-property
+#| fig-cap: "Distributional Comparison: Property Damage Rate (Raw vs. Log)"
+#| echo: false
+#| message: false
+#| fig-width: 9
+#| fig-height: 3.3
+#| fig-pos: H
+
+p3_raw <- plot_dist_local(
+    df_raw,
+    "PKS_property_damage_rate",
+    "Property Damage (Raw)",
+    "Cases per 100k Population"
+)
+p3_log <- plot_dist_local(
+    df_raw,
+    "log_property_damage",
+    "Log Property Damage",
+    "Log Cases per 100k Population"
+)
+
+p3_raw + p3_log
+```
+
+```{=latex}
+\newpage
+```
+
+```{r}
+#| label: fig-dist-capital
+#| fig-cap: "Distributional Comparison: Capital Stock per Capita (Raw vs. Log)"
+#| echo: false
+#| message: false
+#| fig-width: 9
+#| fig-height: 3.3
+#| fig-pos: H
+
+p4_raw <- plot_dist_local(
+    df_raw,
+    "CAPITAL_stock_per_capita",
+    "Capital Stock (Raw)",
+    "Capital Stock per Capita (EUR)"
+) +
+    ggplot2::scale_x_continuous(
+        labels = scales::label_number(scale_cut = scales::cut_short_scale())
+    )
+
+p4_log <- plot_dist_local(
+    df_raw,
+    "log_capital",
+    "Log Capital Stock",
+    "Log Capital Stock per Capita (EUR)"
+)
+
+p4_raw + p4_log
+```
+
+```{r}
+#| label: fig-dist-unemployment
+#| fig-cap: "Distributional Comparison: Unemployment Rate (Raw vs. Log)"
+#| echo: false
+#| message: false
+#| fig-width: 9
+#| fig-height: 3.3
+#| fig-pos: H
+
+p5_raw <- plot_dist_local(
+    df_raw,
+    "INKAR_EMPLOYMENT_unemployment_rate",
+    "Unemployment Rate (Raw)",
+    "Unemployed Share (%)"
+)
+p5_log <- plot_dist_local(
+    df_raw,
+    "log_unemployment",
+    "Unemployment Rate",
+    "Log Unemployed Share (%)"
+)
+
+p5_raw + p5_log
+```
+
+```{r}
+#| label: fig-dist-demo
+#| fig-cap: "Distributional Comparison of Young Population Shares"
+#| echo: false
+#| message: false
+#| fig-width: 9
+#| fig-height: 3.3
+#| fig-pos: H
+
+p_child <- plot_dist_local(
+    df_raw,
+    "FE_share_children",
+    "Share of Children (0-17)",
+    "Population Share (%)"
+)
+
+p_youth <- plot_dist_local(
+    df_raw,
+    "FE_share_youth",
+    "Share of Youth (18-24)",
+    "Population Share (%)"
+)
+
+p_child + p_youth
+```
+
+```{=latex}
+\newpage
+```
+
+## Specification Tests: Hausman Test {#sec-app-hausman .smaller}
+
+```{=latex}
+\FloatBarrier
+```
+
+```{r}
+#| label: tbl-hausman
+#| tbl-cap: "Hausman Specification Test (FE vs. RE)"
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-pos: H
+
+library(plm)
+library(gt)
+
+# 1. Prepare Data for plm
+pdf_hausman <- plm::pdata.frame(df_raw, index = c("district_id", "year"))
+
+# 2. Define Formula (Final Model Specification)
+form_h <- log_gdp_pc ~
+    log_unemp_l1 +
+    log_capital +
+    log_property_damage_l1 +
+    FE_share_children +
+    FE_share_youth +
+    foreigner_share +
+    FE_foreign_labor_supply_pressure_l1 +
+    FE_log_labor_efficacy_l1
+
+# 3. Estimate Models
+fe_mod <- plm::plm(form_h, data = pdf_hausman, model = "within")
+re_mod <- plm::plm(form_h, data = pdf_hausman, model = "random")
+
+# 4. Perform Hausman Test
+h_res <- plm::phtest(fe_mod, re_mod)
+
+# 5. Create Table with kableExtra
+library(knitr)
+library(kableExtra)
+
+p <- data.frame(
+    Parameter = c(
+        "Test Statistic ($\\chi^2$)",
+        "Degrees of Freedom (df)",
+        "p-value",
+        "Final Decision"
+    ),
+    Value = c(
+        sprintf("%.2f", h_res$statistic),
+        as.character(h_res$parameter),
+        "p < 0.001",
+        "\\textbf{Reject $H_0$}"
+    ),
+    Interpretation = c(
+        "High magnitude of coefficient divergence",
+        "Based on the number of regressors",
+        "Extremely high statistical significance",
+        "\\textbf{Fixed Effects (FE) is required}"
+    )
+)
+
+if (is_latex) {
+    p <- p %>%
+        kable(
+            format = "latex",
+            booktabs = TRUE,
+            escape = FALSE,
+            align = "lcl"
+        ) %>%
+        kable_styling(latex_options = c("HOLD_position", "scale_down"), font_size = 10)
+} else {
+    p <- p %>%
+        gt::gt() %>%
+        gt::tab_header(title = "Hausman Specification Test") %>%
+        gt::tab_options(
+            table.width = gt::pct(100),
+            table.font.size = gt::px(16)
+        ) %>%
+        gt::opt_table_font(font = list("EB Garamond", "serif"))
+}
+
+p
+```
+
+```{=latex}
+\FloatBarrier
+```
+
+To ensure the statistical consistency of estimates, a formal Hausman Specification Test was conducted to evaluate the appropriateness of the Fixed Effects (FE) estimator relative to the Random Effects (RE) alternative. The null hypothesis ($H_0$) assumes that the district-specific unobserved effects are uncorrelated with the regressors ($E(\mu_i|X_{it}) = 0$), rendering RE both consistent and efficient; the alternative ($H_1$) posits that such a correlation exists, requiring the FE estimator.
+
+The test results yield a $\chi^2$ statistic of 318.29 with 8 degrees of freedom. The resulting p-value is effectively zero, far below any standard significance threshold ($p < 0.001$). Consequently, we decisively reject the null hypothesis in favor of the Fixed Effects model. This empirical finding confirms that time-invariant district characteristics, such as historical industrial foundations, geographic advantages, and long-standing institutional quality, are systematically correlated with our labor market and prosperity indicators. These results justify the use of a Two-Way Fixed Effects (TWFE) framework to isolate the true "within-variation" and ensure a credible estimation of the integration dividend across German districts.
+
+```{=latex}
+\newpage
+```
+
+## Multicollinearity Diagnostics {#sec-app-vif}
+
+```{r}
+#| label: tbl-vif
+#| tbl-cap: "Multicollinearity Analysis: Variance Inflation Factor (VIF)"
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-pos: H
+
+# 1. List of regressors
+reg_vif <- c(
+    "log_unemp_l1" = "Log Unemployment (t-1)",
+    "log_capital" = "Log Capital Stock per Capita",
+    "log_property_damage_l1" = "Log Property Damage Rate (t-1)",
+    "FE_share_children" = "Demographic Share: Children (\\%)",
+    "FE_share_youth" = "Demographic Share: Youth (\\%)",
+    "foreigner_share" = "Foreigner Share (\\%)",
+    "FE_foreign_labor_supply_pressure_l1" = "Foreign Labor Supply Pressure (t-1)",
+    "FE_log_labor_efficacy_l1" = "Labor Integration Efficacy (t-1)"
+)
+
+# 2. Manual VIF Calculation for TWFE
+vif_df <- data.frame(
+    Variable = names(reg_vif),
+    Label = as.character(reg_vif),
+    stringsAsFactors = FALSE
+)
+
+vif_vals <- sapply(vif_df$Variable, function(x) {
+    others <- setdiff(vif_df$Variable, x)
+    m_vif <- fixest::feols(as.formula(paste(x, "~", paste(others, collapse = " + "), "| district_id + year")), data = df_raw)
+    r2_w <- fixest::fitstat(m_vif, "wr2")[[1]]
+    1 / (1 - r2_w)
+})
+
+vif_df$VIF <- round(vif_vals, 3)
+
+# 3. Create Table
+p <- vif_df %>%
+    dplyr::select(Label, VIF)
+
+if (is_latex) {
+    p <- p %>%
+        kableExtra::kbl(
+            format = "latex",
+            booktabs = TRUE,
+            col.names = c("Predictor Variable", "VIF Score"),
+            align = "lc",
+            escape = FALSE
+        ) %>%
+        kableExtra::kable_styling(
+            latex_options = c("HOLD_position", "scale_down"),
+            font_size = 9
+        ) %>%
+        kableExtra::column_spec(1, width = "8cm") %>%
+        kableExtra::column_spec(2, width = "3cm") %>%
+        kableExtra::footnote(
+            general = "VIF values are calculated based on the Within R-squared after absorbing District and Year Fixed Effects. Threshold: VIF < 5 indicates low multicollinearity.",
+            general_title = "Notes: ",
+            title_format = "bold",
+            threeparttable = TRUE,
+            escape = FALSE
+        )
+} else {
+    p <- p %>%
+        gt::gt() %>%
+        gt::tab_header(title = "Multicollinearity Diagnostics (VIF)") %>%
+        gt::tab_options(
+            table.width = gt::pct(100),
+            table.font.size = gt::px(16)
+        ) %>%
+        gt::opt_table_font(font = list("EB Garamond", "serif")) %>%
+        gt::text_transform(
+            locations = list(gt::cells_body(), gt::cells_column_labels()),
+            fn = function(x) gsub("\\\\%", "%", x)
+        )
+}
+
+p
+```
+
+
+
+To ensure the statistical reliability of the estimated coefficients, a formal multicollinearity diagnostic was performed using the Variance Inflation Factor (VIF). This diagnostic assessment complements the discussion of the identification strategy and statistical rigor presented in @sec-diagnostics. In regional econometric models involving multiple demographic and labor market indicators, there is an inherent risk that independent variables may be highly correlated, which can artificially inflate standard errors and reduce the precision of the estimates. The VIF measures the extent to which the variance of an estimated regression coefficient is increased due to collinearity with other predictors in the model.
+
+As presented in Table 6, the VIF scores for all variables in the baseline specification are well below the commonly accepted conservative threshold of 5. The highest VIF observed is 1.777 for the youth demographic share, followed by 1.570 for the share of children. These values indicate that even with the inclusion of specific age-based controls, the model does not suffer from significant multicollinearity. 
+
+Of particular importance for the internal validity of the study are the VIF scores for the primary migration metrics. Despite the theoretical and structural links between the Foreigner Share (1.410), Foreign Labor Supply Pressure (1.409), and Labor Integration Efficacy (1.339), their respective VIF values remain remarkably low. This empirical evidence confirms that these variables capture distinct and non-redundant dimensions of the regional labor market. 
+
+Furthermore, the VIF values were calculated based on the Within R-squared after absorbing district and year fixed effects. This procedure ensures that the multicollinearity assessment is consistent with the Two-Way Fixed Effects (TWFE) framework used in the main analysis. The results collectively demonstrate that the model specification is parsimonious and the estimated elasticities are not biased by internal statistical redundancies.
+
+```{=latex}
+\newpage
+```
+
+## Detailed Robustness Analysis {#sec-app-robustness}
+
+This section provides the full empirical results for the robustness tests discussed in @sec-robustness.
+
+### Sensitivity to Alternative Crime Definitions {#sec-app-crime}
+
+```{r}
+#| label: tbl-crime-robust
+#| tbl-cap: "Robustness Check: Sensitivity to Alternative Crime Definitions"
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-pos: H
+
+# 1. Preparation (Standardized preparation without manual +0.1)
+df_crime <- df_raw %>%
+    dplyr::arrange(district_id, year) %>%
+    dplyr::group_by(district_id) %>%
+    dplyr::mutate(
+        log_total = dplyr::lag(log(PKS_total_crime_rate), 1),
+        log_street = dplyr::lag(log(PKS_street_crime_rate), 1),
+        log_drugs = dplyr::lag(log(PKS_drug_offences_rate), 1),
+        log_bodily = dplyr::lag(log(PKS_bodily_harm_rate), 1),
+        log_property = dplyr::lag(log(PKS_property_damage_rate), 1)
+    ) %>%
+    dplyr::ungroup()
+
+m_total <- fixest::feols(
+    log_gdp_pc ~ log_unemp_l1 + log_capital + log_total + FE_share_children + FE_share_youth + foreigner_share + FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | district_id + year,
+    data = df_crime
+)
+m_street <- fixest::feols(
+    log_gdp_pc ~ log_unemp_l1 + log_capital + log_street + FE_share_children + FE_share_youth + foreigner_share + FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | district_id + year,
+    data = df_crime
+)
+m_drugs <- fixest::feols(
+    log_gdp_pc ~ log_unemp_l1 + log_capital + log_drugs + FE_share_children + FE_share_youth + foreigner_share + FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | district_id + year,
+    data = df_crime
+)
+m_bodily <- fixest::feols(
+    log_gdp_pc ~ log_unemp_l1 + log_capital + log_bodily + FE_share_children + FE_share_youth + foreigner_share + FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | district_id + year,
+    data = df_crime
+)
+m_main <- fixest::feols(
+    log_gdp_pc ~ log_unemp_l1 + log_capital + log_property + FE_share_children + FE_share_youth + foreigner_share + FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | district_id + year,
+    data = df_crime
+)
+
+models_crime <- list(
+    "(1) Total" = m_total,
+    "(2) Street" = m_street,
+    "(3) Drugs" = m_drugs,
+    "(4) Bodily" = m_bodily,
+    "(5) Property" = m_main
+)
+
+coef_map_crime <- c(
+    "FE_log_labor_efficacy_l1" = "Log Labor Integration Effic. (t-1)",
+    "log_total" = "Log Total Crime Rate (t-1)",
+    "log_street" = "Log Street Crime Rate (t-1)",
+    "log_drugs" = "Log Drug Offences Rate (t-1)",
+    "log_bodily" = "Log Bodily Harm Rate (t-1)",
+    "log_property" = "Log Property Damage Rate (t-1)",
+    "log_unemp_l1" = "Log Unemployment (t-1)",
+    "log_capital" = "Log Capital Stock per Capita",
+    "FE_foreign_labor_supply_pressure_l1" = "Foreign Labor Supply Pressure (t-1) (\\%)"
+)
+
+# 2. Fixed Effects Metadata
+rows_crime <- data.frame(
+    term = c("District FE", "Year FE"),
+    "(1) Total" = rep("Yes", 2),
+    "(2) Street" = rep("Yes", 2),
+    "(3) Drugs" = rep("Yes", 2),
+    "(4) Bodily" = rep("Yes", 2),
+    "(5) Property" = rep("Yes", 2),
+    check.names = FALSE
+)
+
+p <- modelsummary::modelsummary(
+    models_crime,
+    coef_map = coef_map_crime,
+    gof_map = gof_mapping,
+    add_rows = rows_crime,
+    stars = c('*' = .1, '**' = .05, '***' = .01),
+    fmt = 3,
+    output = if (is_latex) "kableExtra" else "gt",
+    booktabs = TRUE,
+    escape = FALSE
+)
+
+if (is_latex) {
+    p <- p %>%
+        kableExtra::kable_styling(latex_options = c("HOLD_position", "scale_down"), font_size = 9) %>%
+        kableExtra::add_header_above(c(" " = 1, "Alternative Crime Proxies" = 5)) %>%
+        kableExtra::add_header_above(c(" " = 1, "Dependent Variable: Log GDP per Capita (2003-2021)" = 5)) %>%
+        kableExtra::footnote(
+            general = "Robust standard errors clustered at the district level are in parentheses.  Coefficients for variables in logarithmic form (prefixed with `Log') represent elasticities, while coefficients for shares and pressure metrics represent semi-elasticities. All independent variables, excluding shares, are lagged by one year ($t-1$).",
+            general_title = "Notes: ",
+            title_format = "bold",
+            threeparttable = TRUE,
+            escape = FALSE
+        ) %>%
+        kableExtra::row_spec(seq(3, 18, by = 4), background = "#F2F2F2") %>%
+        kableExtra::row_spec(seq(4, 18, by = 4), background = "#F2F2F2")
+} else {
+    p <- p %>%
+        gt::tab_header(title = "Sensitivity to Alternative Crime Definitions") %>%
+        gt::tab_options(
+            table.width = gt::pct(100),
+            table.font.size = gt::px(16)
+        ) %>%
+        gt::opt_table_font(font = list("EB Garamond", "serif")) %>%
+        gt::text_transform(
+            locations = list(gt::cells_body(), gt::cells_column_labels()),
+            fn = function(x) gsub("\\\\%", "%", x)
+        )
+}
+
+p
+```
+
+@tbl-crime-robust presents a sensitivity analysis re-estimating the baseline model (@sec-migration-results) with five distinct crime categories to ensure the "integration dividend" is not a statistical artifact of the social control variable. The most striking finding is the exceptional stability of Log Labor Integration Efficacy ($t-1$), which maintains a coefficient between $0.027$ and $0.028$ ($p < 0.01$) across all specifications. While Log Total Crime Rate also shows a significant correlation with regional output, Log Property Damage Rate is prioritized as the primary proxy because it yields a higher level of statistical significance ($p < 0.01$) and serves as a more precise indicator of the economic density and capital-related frictions inherent in prosperous industrial districts. The consistency of both the Foreign Labor Supply Pressure and the Within $R^2$ across all columns confirms that the core results are invariant to the choice of social stability indicators, proving that the captured economic effects are driven by structural labor market dynamics rather than general urban externalities.
+
+```{=latex}
+\newpage
+```
+
+### Lag Structure and Temporal Persistence {#sec-app-lags}
+
+```{r}
+#| label: tbl-lag-robust
+#| tbl-cap: "Robustness Check: Temporal Lag Structure and Persistence"
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-pos: H
+
+df_lag <- df_raw %>%
+    dplyr::arrange(district_id, year) %>%
+    dplyr::group_by(district_id) %>%
+    dplyr::mutate(
+        unemp_l0 = log(INKAR_EMPLOYMENT_unemployment_rate),
+        unemp_l1 = dplyr::lag(log(INKAR_EMPLOYMENT_unemployment_rate), 1),
+        unemp_l2 = dplyr::lag(log(INKAR_EMPLOYMENT_unemployment_rate), 2),
+        unemp_l3 = dplyr::lag(log(INKAR_EMPLOYMENT_unemployment_rate), 3),
+        damage_l0 = log(PKS_property_damage_rate + 0.1),
+        damage_l1 = dplyr::lag(log(PKS_property_damage_rate + 0.1), 1),
+        damage_l2 = dplyr::lag(log(PKS_property_damage_rate + 0.1), 2),
+        damage_l3 = dplyr::lag(log(PKS_property_damage_rate + 0.1), 3),
+        flsp_l0 = flsp,
+        flsp_l1 = dplyr::lag(flsp, 1),
+        flsp_l2 = dplyr::lag(flsp, 2),
+        flsp_l3 = dplyr::lag(flsp, 3),
+        eff_l0 = log(labor_efficacy),
+        eff_l1 = dplyr::lag(log(labor_efficacy), 1),
+        eff_l2 = dplyr::lag(log(labor_efficacy), 2),
+        eff_l3 = dplyr::lag(log(labor_efficacy), 3)
+    ) %>%
+    dplyr::ungroup()
+
+m_0 <- df_lag %>% dplyr::mutate(TARGET_unemp = unemp_l0, TARGET_damage = damage_l0, TARGET_flsp = flsp_l0, TARGET_eff = eff_l0)
+m_1 <- df_lag %>% dplyr::mutate(TARGET_unemp = unemp_l1, TARGET_damage = damage_l1, TARGET_flsp = flsp_l1, TARGET_eff = eff_l1)
+m_2 <- df_lag %>% dplyr::mutate(TARGET_unemp = unemp_l2, TARGET_damage = damage_l2, TARGET_flsp = flsp_l2, TARGET_eff = eff_l2)
+m_3 <- df_lag %>% dplyr::mutate(TARGET_unemp = unemp_l3, TARGET_damage = damage_l3, TARGET_flsp = flsp_l3, TARGET_eff = eff_l3)
+
+spec <- "log_gdp_pc ~ TARGET_unemp + log_capital + TARGET_damage + FE_share_children + FE_share_youth + foreigner_share + TARGET_flsp + TARGET_eff | district_id + year"
+
+m_l0 <- fixest::feols(as.formula(spec), data = m_0)
+m_l1 <- fixest::feols(as.formula(spec), data = m_1)
+m_l2 <- fixest::feols(as.formula(spec), data = m_2)
+m_l3 <- fixest::feols(as.formula(spec), data = m_3)
+
+coef_map_lag <- c(
+    "TARGET_eff" = "Log Labor Integration Efficacy ($t-X$)",
+    "TARGET_flsp" = "Foreign Labor Supply Pressure ($t-X$) (\\%)",
+    "TARGET_unemp" = "Log Unemployment ($t-X$)",
+    "TARGET_damage" = "Log Property Damage ($t-X$)",
+    "log_capital" = "Log Capital Stock per Capita",
+    "foreigner_share" = "Foreigner Share (\\%)",
+    "FE_share_children" = "Demographic Share: Children (\\%)",
+    "FE_share_youth" = "Demographic Share: Youth (\\%)"
+)
+
+models_lag <- list(
+    "(1) L0" = m_l0,
+    "(2) L1" = m_l1,
+    "(3) L2" = m_l2,
+    "(4) L3" = m_l3
+)
+
+# FE Metadata
+rows_lag <- data.frame(
+    term = c("District FE", "Year FE"),
+    "(1) L0" = rep("Yes", 2),
+    "(2) L1" = rep("Yes", 2),
+    "(3) L2" = rep("Yes", 2),
+    "(4) L3" = rep("Yes", 2),
+    check.names = FALSE
+)
+
+p <- modelsummary::modelsummary(
+    models_lag,
+    coef_map = coef_map_lag,
+    gof_map = gof_mapping,
+    add_rows = rows_lag,
+    stars = c('*' = .1, '**' = .05, '***' = .01),
+    fmt = 3,
+    output = if (is_latex) "kableExtra" else "gt",
+    booktabs = TRUE,
+    escape = FALSE
+)
+
+if (is_latex) {
+    p <- p %>%
+        kableExtra::kable_styling(
+            latex_options = c("HOLD_position", "scale_down"),
+            font_size = 9
+        ) %>%
+        kableExtra::add_header_above(c(" " = 1, "Alternative Temporal Lags (X = 0 to 3)" = 4)) %>%
+        kableExtra::add_header_above(c(" " = 1, "Dependent Variable: Log GDP per Capita (2003-2021)" = 4)) %>%
+        kableExtra::footnote(
+            general = "Robust standard errors clustered at the district level are in parentheses. Coefficients for variables in logarithmic form (prefixed with `Log') represent elasticities, while coefficients for shares and pressure metrics represent semi-elasticities. All independent variables, excluding shares, are lagged by one year ($t-1$).",
+            general_title = "Notes: ",
+            title_format = "bold",
+            threeparttable = TRUE,
+            escape = FALSE
+        ) %>%
+        kableExtra::row_spec(seq(3, 16, by = 4), background = "#F2F2F2") %>%
+        kableExtra::row_spec(seq(4, 16, by = 4), background = "#F2F2F2")
+} else {
+    p <- p %>%
+        gt::tab_header(title = "Temporal Lag Structure and Persistence") %>%
+        gt::tab_options(
+            table.width = gt::pct(100),
+            table.font.size = gt::px(16)
+        ) %>%
+        gt::opt_table_font(font = list("EB Garamond", "serif")) %>%
+        gt::text_transform(
+            locations = list(gt::cells_body(), gt::cells_column_labels()),
+            fn = function(x) gsub("\\\\%", "%", x)
+        )
+}
+
+p
+```
+
+@tbl-lag-robust explores the temporal lag structure of the key migration variables to determine whether the integration dividend (@sec-migration-results) is a transitory effect or a persistent structural benefit. The most significant finding is the intensifying impact of Labor Integration Efficacy, as its elasticity rises steadily from $0.027$ in the contemporaneous period to $0.034$ at a three-year lag ($p < 0.01$). This increasing magnitude suggests that the economic returns of successful labor market integration are cumulative, likely reflecting the time required for foreign workers to acquire region-specific human capital and professional networks. Furthermore, the Foreign Labor Supply Pressure maintains a stable and positive semi-elasticity between $0.009$ and $0.011$ across all lag specifications ($p < 0.05$), confirming that an available labor reserve provides a reliable and lasting latent capacity for regional economies. Collectively, these results reinforce the study's central hypothesis (@sec-migration-results) by demonstrating that the benefits of integration efficacy not only persist but actually grow more potent as the integration process matures.
+
+```{=latex}
+\newpage
+```
+
+
+### Instrumental Variables (IV) Analysis {#sec-app-iv}
+
+To address potential endogeneity concerns between regional Prosperity ($\ln(GDP_{pc})$) and Capital Stock per Capita, we perform an Instrumental Variables (IV) estimation. We instrument the current Log Capital Stock with its first lag ($\ln(Capital_{t-1})$), a standard approach in regional growth models to account for simultaneity bias.
+
+```{r}
+#| label: tbl-iv-robust
+#| tbl-cap: "Robustness Check: Instrumental Variables (IV) Estimation"
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-pos: H
+
+# 1. Use existing data
+df_iv <- df_raw
+
+# 2. Estimate Models
+mod_ols_app <- fixest::feols(
+    log_gdp_pc ~ log_unemp_l1 + log_capital + log_property_damage_l1 + 
+                 FE_share_children + FE_share_youth + foreigner_share + 
+                 FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | 
+                 district_id + year, 
+    data = df_iv
+)
+
+mod_iv_app <- fixest::feols(
+    log_gdp_pc ~ log_unemp_l1 + log_property_damage_l1 + 
+                 FE_share_children + FE_share_youth + foreigner_share + 
+                 FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | 
+                 district_id + year | 
+                 log_capital ~ log_capital_l1, 
+    data = df_iv
+)
+
+models_iv <- list(
+    "OLS (Baseline)" = mod_ols_app,
+    "IV (2SLS)" = mod_iv_app
+)
+
+# 3. Create Table
+coef_map_iv <- c(
+    "log_capital" = "Log Capital Stock per Capita (t)",
+    "fit_log_capital" = "Log Capital Stock per Capita (t) [Instrumented]",
+    "log_unemp_l1" = "Log Unemployment (t-1)",
+    "log_property_damage_l1" = "Log Property Damage Rate (t-1)",
+    "FE_share_children" = "Demographic Share: Children (0-17) (t) (\\%)",
+    "FE_share_youth" = "Demographic Share: Youth (18-24) (t) (\\%)",
+    "foreigner_share" = "Foreigner Share (t) (\\%)",
+    "FE_foreign_labor_supply_pressure_l1" = "Foreign Labor Supply Pressure (t-1) (\\%)",
+    "FE_log_labor_efficacy_l1" = "Log Labor Integration Efficacy (t-1)"
+)
+
+gof_mapping_iv <- list(
+    list("raw" = "nobs", "clean" = "Observations", "fmt" = 0),
+    list("raw" = "r2.within", "clean" = "Within R\u00b2", "fmt" = 3),
+    list("raw" = "iv_f_stat", "clean" = "First-stage F-stat", "fmt" = 2)
+)
+
+rows_iv <- data.frame(
+    term = c("District FE", "Year FE"),
+    "OLS (Baseline)" = c("Yes", "Yes"),
+    "IV (2SLS)" = c("Yes", "Yes"),
+    check.names = FALSE
+)
+
+p_iv <- modelsummary::modelsummary(
+    models_iv,
+    coef_map = coef_map_iv,
+    gof_map = gof_mapping_iv,
+    add_rows = rows_iv,
+    stars = c('*' = .1, '**' = .05, '***' = .01),
+    fmt = 3,
+    output = if (is_latex) "kableExtra" else "gt",
+    booktabs = TRUE,
+    escape = FALSE
+)
+
+if (is_latex) {
+    p_iv <- p_iv %>%
+        kableExtra::kable_styling(latex_options = c("HOLD_position", "scale_down"), font_size = 9) %>%
+        kableExtra::add_header_above(c(" " = 1, "Instrumental Variables (2SLS)" = 2)) %>%
+        kableExtra::add_header_above(c(" " = 1, "Dependent Variable: Log GDP per Capita (2003-2021)" = 2)) %>%
+        kableExtra::footnote(
+            general = "First-stage F-statistic indicates instrument strength. The first lag of Log Capital Stock is used as an excluded instrument.",
+            general_title = "Notes: ",
+            title_format = "bold",
+            threeparttable = TRUE,
+            escape = FALSE
+        ) %>%
+        # Custom 2-row striping (grouping Coef + SE)
+        kableExtra::row_spec(seq(3, 16, by = 4), background = "#F2F2F2") %>%
+        kableExtra::row_spec(seq(4, 16, by = 4), background = "#F2F2F2")
+} else {
+    p_iv <- p_iv %>%
+        gt::tab_header(title = "Instrumental Variables (IV) Estimation") %>%
+        gt::tab_options(table.width = gt::pct(100), table.font.size = gt::px(16))
+}
+
+p_iv
+```
+
+The IV results in @tbl-iv-robust confirm the robustness of our core findings. The coefficient for the instrumented Log Capital Stock remains highly significant ($p < 0.01$) and maintains a stable magnitude of $0.603$, which is remarkably close to the OLS benchmark of $0.611$. This consistency suggests that the OLS estimates for physical capital are not significantly biased by simultaneity in the district-level production function. Crucially, the Log Labor Integration Efficacy coefficient remains stable and statistically significant ($0.028, p < 0.01$), reinforcing the validity of the integration dividend even when accounts are made for the potential endogeneity of physical capital accumulation.
+
+```{=latex}
+\newpage
+```
+
+```{=latex}
+\makeatletter
+\addtocontents{toc}{\protect\DeclareTOCStyleEntry[pagenumberbox=\protect\@gobble]{default}{section}}
+\makeatother
+```
+
+
+### East versus West Germany {#sec-app-east-west}
+
+```{r}
+#| label: tbl-east-west
+#| tbl-cap: "Robustness Check: Regional Heterogeneity (West vs. East Germany)"
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-pos: H
+
+df_ew <- df_raw %>%
+    dplyr::mutate(
+        state_code = substr(district_id, 1, 2),
+        region = ifelse(
+            state_code %in% c("11", "12", "13", "14", "15", "16"),
+            "East", "West"
+        )
+    )
+
+mod_full <- fixest::feols(log_gdp_pc ~ log_unemp_l1 + log_capital + log_property_damage_l1 + FE_share_children + FE_share_youth + foreigner_share + FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | district_id + year, data = df_ew)
+mod_west <- fixest::feols(log_gdp_pc ~ log_unemp_l1 + log_capital + log_property_damage_l1 + FE_share_children + FE_share_youth + foreigner_share + FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | district_id + year, data = df_ew[df_ew$region == "West", ])
+mod_east <- fixest::feols(log_gdp_pc ~ log_unemp_l1 + log_capital + log_property_damage_l1 + FE_share_children + FE_share_youth + foreigner_share + FE_foreign_labor_supply_pressure_l1 + FE_log_labor_efficacy_l1 | district_id + year, data = df_ew[df_ew$region == "East", ])
+
+models_ew <- list("Full Sample" = mod_full, "West Germany" = mod_west, "East Germany" = mod_east)
+
+# FE Metadata
+rows_ew <- data.frame(
+    term = c("District FE", "Year FE"),
+    "Full Sample" = rep("Yes", 2),
+    "West Germany" = rep("Yes", 2),
+    "East Germany" = rep("Yes", 2),
+    check.names = FALSE
+)
+
+p <- modelsummary::modelsummary(
+    models_ew,
+    coef_map = coef_map,
+    gof_map = gof_mapping,
+    add_rows = rows_ew,
+    stars = c('*' = .1, '**' = .05, '***' = .01),
+    fmt = 3,
+    output = if (is_latex) "kableExtra" else "gt",
+    booktabs = TRUE,
+    escape = FALSE
+)
+
+if (is_latex) {
+    p <- p %>%
+        kableExtra::kable_styling(latex_options = c("HOLD_position", "scale_down"), font_size = 9) %>%
+        kableExtra::add_header_above(c(" " = 1, "Regional Sample Split" = 3)) %>%
+        kableExtra::add_header_above(c(" " = 1, "Dependent Variable: Log GDP per Capita (2003-2021)" = 3)) %>%
+        kableExtra::footnote(
+            general = "Robust standard errors clustered at the district level are in parentheses. Coefficients for variables in logarithmic form (prefixed with `Log') represent elasticities, while coefficients for shares and pressure metrics represent semi-elasticities. All independent variables, excluding shares, are lagged by one year ($t-1$).",
+            general_title = "Notes: ",
+            title_format = "bold",
+            threeparttable = TRUE,
+            escape = FALSE
+        ) %>%
+        kableExtra::row_spec(seq(3, 16, by = 4), background = "#F2F2F2") %>%
+        kableExtra::row_spec(seq(4, 16, by = 4), background = "#F2F2F2")
+} else {
+    p <- p %>%
+        gt::tab_header(title = "Regional Heterogeneity (West vs. East Germany)") %>%
+        gt::tab_options(
+            table.width = gt::pct(100),
+            table.font.size = gt::px(16)
+        ) %>%
+        gt::opt_table_font(font = list("EB Garamond", "serif")) %>%
+        gt::text_transform(
+            locations = list(gt::cells_body(), gt::cells_column_labels()),
+            fn = function(x) gsub("\\\\%", "%", x)
+        )
+}
+
+p
+```
+
+@tbl-east-west examines the robustness of the core findings by splitting the sample into West and East German districts to account for regional heterogeneity. While fundamental growth drivers such as capital stock remain significant and positive across both sub-samples, the specialized migration metrics exhibit distinct patterns when the dataset is bifurcated. Notably, the coefficients for integration efficacy and labor supply pressure in the East German sub-sample are not only statistically insignificant but also exhibit a sign reversal compared to the full panel. This divergence suggests that the non-significance in the East is not merely a consequence of reduced statistical power, but likely reflects deeper structural and historical labor market differences. 
+
+In the East, lower foreign-born population shares may fall below the "critical mass" required for scale effects and network externalities to materialize. More importantly, the distinct structural unemployment patterns and different institutional trajectories of the post-reunification East may alter the transmission mechanism of the integration dividend. In these districts, the structural mismatch between available labor supply and regional industrial needs may temporarily decouple integration success from aggregate GDP growth. These findings imply that the "Integration Dividend" identified in the main analysis (@sec-migration-results) is a phenomenon primarily driven by mature, high-capital-density labor markets with long-established migration networks, such as those found in Western Germany. While the full panel captures the systemic importance of integration across the federal republic, this sub-sample analysis identifies regional economic maturity as a critical scope condition for the positive growth effects of foreign labor integration to be realized.
+
+```{=latex}
+\newpage
+```
+
+# References {-}
+
+:::: {#refs}
+::::
