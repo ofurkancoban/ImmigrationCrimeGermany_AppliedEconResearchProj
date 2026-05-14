@@ -1,0 +1,330 @@
+/*-- scss:defaults --*/
+
+// Modern Elite Color Palette
+$primary: #004079; 
+$accent: #5e72e4;  
+$success: #2dce89;
+$info: #11cdef;
+$warning: #fb6340;
+$danger: #f5365c;
+$light: #f8f9fa;
+$dark: #32325d;
+
+// Typography
+$font-family-sans-serif: "Plus Jakarta Sans", "Inter", -apple-system, sans-serif;
+$presentation-heading-font: "Plus Jakarta Sans", sans-serif;
+$presentation-heading-font-weight: 700;
+$presentation-heading-color: $dark;
+
+// RevealJS Heading Sizes
+$presentation-heading1-size: 1.6em;
+$presentation-heading2-size: 1.4em; // Slide Titles reduced from 1.6
+$presentation-heading3-size: 1.25em;
+$presentation-heading4-size: 1em;
+
+// Native Title Slide Typography overrides
+$title-slide-font-size: 0.6em; // Base size for everything on the title slide not an h1/h2
+
+// Extracted SCSS specifically to deal with Title Slide padding/gaps natively
+.quarto-title-block {
+    .subtitle {
+        font-size: 1.0em !important; // Fits on single line
+        margin-bottom: 0 !important; // We will use margin-top on the children to keep gaps strictly equal
+        
+        // Custom styling for the inserted Seminar Paper title
+        .seminar-paper {
+            display: block; // Force it to its own line
+            font-size: 0.7em !important; // Make it smaller than subtitle
+            color: $primary !important;
+            font-weight: 500 !important;
+            margin-top: 2em !important; // GAP 1: Subtitle -> Seminar Paper
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+    
+    // We add margin-top here to separate it from the Seminar Paper span above it
+    .quarto-title-author-name {
+        font-size: 1.2em !important; // Smaller author
+        margin-top: 2em !important; // GAP 2: Seminar Paper -> Author
+    }
+    .quarto-title-affiliation {
+        font-size: 1em !important; // remains small relative to base (0.6em overall)
+        margin-top: 2em !important; // GAP 3: Author -> Instructors
+    }
+}
+
+// Shrink the date at the bottom
+.quarto-title-block .date {
+    font-size: 0.55em !important; // Increaserd from 0.35em
+    margin-top: 2.5em !important; // Maintain spacing
+    opacity: 0.8; // Restored visibility
+}
+
+// Layout
+$body-bg: #fcfdfe;
+$body-color: #525f7f;
+
+/*-- scss:rules --*/
+
+:root {
+  --r-heading1-size: 1.8em;
+  --r-main-font-size: 32px; // Reduced from 36px to fit more content
+}
+
+// Global Smoothness
+.reveal {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  // Force visibility for shadows globally
+  .slides section,
+  .column,
+  div {
+    overflow: visible !important;
+  }
+}
+
+// Minimalist Floating slide titles
+.reveal h2 {
+    color: $dark !important;
+    font-weight: 800 !important;
+    font-size: 1.4em !important;
+    margin-bottom: 20px !important;
+    text-align: left !important;
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 0px !important; // Add space for logo
+    
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0px; // Match padding
+        width: 40px;
+        height: 4px;
+        background: $primary;
+        border-radius: 2px;
+    }
+}
+
+// Title Slide - Ultra Premium
+.title-slide {
+    background: radial-gradient(circle at 10% 20%, rgba(0, 64, 121, 0.05) 0%, rgba(255, 255, 255, 1) 90.1%) !important;
+    
+    // We target the native elements now to cleanly handle Quarto's chaotic wrapping
+    .title {
+        background: linear-gradient(135deg, $primary 0%, $accent 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 850 !important;
+        margin-bottom: 0.1em !important;
+        line-height: var(--r-heading-line-height) !important;
+    }
+    
+    .subtitle {
+        color: #8898aa !important;
+        font-weight: 400 !important;
+        margin: 0 auto 2em auto;
+    }
+    
+    // All authors & institute styling managed via root variables now
+    // We just enforce formatting here
+    .quarto-title-author-name {
+        font-weight: 800 !important;
+        color: $dark !important;
+    }
+    
+    .quarto-title-affiliation {
+        color: $primary !important;
+        font-weight: 300 !important;
+        opacity: 0.7;
+    }
+}
+
+// Hide persistent UI on the title slide using modern :has selector
+.reveal:has(section#title-slide.present) {
+    .footer,
+    .slide-number,
+    .controls,
+    .progress,
+    .slide-logo,
+    .indicator-settings-btn,
+    .slide-menu-button,
+    .reveal-nav-prev,
+    .reveal-nav-next {
+        display: none !important;
+    }
+}
+
+// Section Slides - Sophisticated Minimalist
+.reveal .slides section.section-slide {
+    background-color: white !important;
+    
+    h1 {
+        font-size: 1.8em !important;
+        color: $primary !important;
+        font-weight: 800 !important;
+        margin-bottom: 0.5em !important;
+    }
+    
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(90deg, $primary 0%, $accent 100%);
+    }
+}
+
+// Floating Table Cards (gt) - Robust Radius & Shadow
+.reveal .gt_table {
+    background: white !important;
+    border-radius: 12px !important;
+    box-shadow: 4px 4px 12px 1px rgba(0, 0, 0, 0.39) !important;
+    border: none !important;
+    margin: 15px auto !important;
+    padding: 0 !important; // External padding can break internal radius
+    overflow: visible !important; // Shadow freedom
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+
+    // The "Cell-Radius" Trick: Ensure background colors don't bleed out of rounded corners
+    // while overflow is visible.
+    
+    // Top corners (Header)
+    thead tr:first-child th:first-child,
+    thead tr:first-child td:first-child {
+        border-top-left-radius: 12px !important;
+    }
+    thead tr:first-child th:last-child,
+    thead tr:first-child td:last-child {
+        border-top-right-radius: 12px !important;
+    }
+    
+    // Bottom corners (Body/Footer)
+    tbody tr:last-child td:first-child,
+    tfoot tr:last-child td:first-child {
+        border-bottom-left-radius: 12px !important;
+    }
+    tbody tr:last-child td:last-child,
+    tfoot tr:last-child td:last-child {
+        border-bottom-right-radius: 12px !important;
+    }
+
+    // Aggressive Reset: Kill ALL gt default borders
+    .gt_table, .gt_heading, .gt_col_headings, .gt_column_spanner, 
+    .gt_table_body, .gt_row, .gt_sourcenotes, .gt_footnotes {
+        border: none !important;
+    }
+
+    table.gt_table { 
+        border-top: 2px solid #D3D3D3 !important;
+        border-bottom: 2px solid #D3D3D3 !important;
+        overflow: visible !important;
+        background: transparent !important;
+        border-radius: 12px !important;
+        border-collapse: separate !important;
+        border-spacing: 0 !important;
+    }
+    
+    .gt_col_headings {
+        border-top: 2px solid #D3D3D3 !important;
+        border-bottom: 2px solid #D3D3D3 !important;
+    }
+
+    // Internal cell padding replacement for the 20px request
+    .gt_row, .gt_col_heading, .gt_title, .gt_sourcenote {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 3px !important;
+        padding-bottom: 3px !important;
+    }
+
+    .gt_sourcenote {
+        font-size: 9px !important;
+    }
+
+    // Re-add Journal separators for 2px lines applied via R
+    [style*="border-bottom-width: 2px"],
+    [style*="border-bottom-width: 2.00px"] {
+        border-bottom: 2px solid #D3D3D3 !important;
+    }
+    
+    [style*="border-top-width: 2px"],
+    [style*="border-top-width: 2.00px"] {
+        border-top: 2px solid #D3D3D3 !important;
+    }
+}
+
+.reveal .gt_title {
+    border-bottom: none !important;
+}
+
+.reveal .gt_col_heading {
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    font-size: 0.7em !important;
+    font-weight: 800 !important;
+    color: #8898aa !important;
+    background-color: #f8f9fa !important;
+    border-bottom: 2px solid #D3D3D3 !important;
+}
+
+// Highlight Row - Premium Blue Fill
+.reveal .gt_striped {
+    background-color: #f8fafc !important;
+}
+
+// Highlight specific rows (Gap/Efficacy)
+.reveal [style*="background-color: #f0f7ff"] {
+    background-color: rgba($primary, 0.08) !important;
+    font-weight: 600 !important;
+}
+
+// Callouts - Clean Card Style
+.reveal .callout {
+    border: none !important;
+    border-left: 4px solid $primary !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+    background: white !important;
+    border-radius: 6px !important;
+}
+
+// Footer
+.reveal .footer, 
+.reveal .footer p {
+    font-family: $font-family-sans-serif;
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase !important;
+    text-align: center !important;
+}
+
+// Logo Position (Top Right)
+.reveal .slide-logo,
+.reveal img.slide-logo,
+div.slide-logo {
+    display: block !important;
+    position: absolute !important;
+    top: 15px !important;
+    right: 20px !important;
+    left: auto !important;
+    bottom: auto !important;
+    max-height: 85px !important; // Increased from 75px
+    z-index: 100 !important; // High but below indicators if needed
+    transition: all 0.3s ease;
+}
+
+// Slide Number Position (Bottom Right)
+.reveal .slide-number {
+    position: absolute !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    top: auto !important;
+    left: auto !important;
+}

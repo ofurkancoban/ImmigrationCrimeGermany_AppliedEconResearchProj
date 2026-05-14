@@ -1,0 +1,640 @@
+---
+title: "Immigration, Crime, and Prosperity"
+subtitle: 'The Economic Drivers of Growth in German Districts <span class="seminar-paper">Applied Economics<br> WiSe25/26</span>'
+author: "**Ömer Furkan Çoban**"
+institute: "Prof. Dr. Jürgen Bitzer <br> Dr. Bernhard Christopher Dannemann <br> Abigail Opokua Asare"
+date: "2026-02-27"
+bibliography: references.bib
+date-format: "DD.MM.YYYY"
+format:
+  revealjs:
+    theme: [default, modern_elite.scss]
+    slide-number: "c/t"
+    logo: "university_logo.png"
+    self-contained: true
+    footer: "{{< meta date >}} | Applied Economics | Ömer Furkan Çoban <br> Immigration, Crime, and Prosperity:The Economic Drivers of Growth in German Districts"
+    title-slide-attributes:
+      data-state: "title-slide-active"
+      data-notes: "Hello everyone, today I will be presenting my seminar paper titled  'Immigration, Crime, and Prosperity: The Economic Drivers of Growth in German Districts'. In recent political and public debates, immigration is often portayed as an issue related to security risk and increasing social burdens. However, my research aims to shift this narrative. I'm moving beyond the question of 'How many people arrived?' to 'How effectively are they being absorbed into regional labor market, and what is the actual economic return of this success?' By analyzing nearly 2 decades of data across 400 German districts, this study quantifies the relationship between labor integration efficacy, social stability and regional prosperity. My goal is today show you that successful integration is not a social responsibility, it is a powerful engine for regional prosperity."
+    transition: slide
+    background-transition: fade
+    chalkboard: false
+    width: 1200
+    height: 800
+    margin: 0.05
+
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+        <style>
+        /* Table scale adjustment for Modern Elite Card style - Ultra Compacted for fit */
+        .reveal .gt_table {
+          font-family: "Plus Jakarta Sans", sans-serif !important;
+          font-size: 13px !important;
+          max-width: 95% !important;
+          margin: 5px auto !important;
+          line-height: 1.1 !important;
+        }
+        .reveal .gt_row {
+          padding: 1px 6px !important;
+          font-size: 12px !important;
+        }
+        .reveal .gt_col_heading {
+          padding: 4px 6px !important;
+          font-size: 13px !important;
+        }
+        .reveal .gt_row_group {
+          padding: 2px 8px !important;
+          font-size: 13px !important;
+          font-weight: bold !important;
+        }
+        .reveal .gt_sourcenote {
+          font-size: 11px !important;
+          padding: 2px !important;
+        }
+        /* Reduced top padding (user requested horizontal shift instead) */
+        .reveal .slides section {
+          padding-top: 25px !important;
+        }
+        </style>
+filters:
+  - ofurkancoban/progress-indicator
+  - ofurkancoban/laser-pointer
+---
+
+## Agenda {.skip-progress}
+
+1. **Introduction**
+2. **Literature**
+3. **Data**
+4. **Methodology**
+5. **Results**
+6. **Conclusion**
+
+:::{.notes}
+Agenda of the presentation is as following:
+
+First, I will explain my motivation and research question.
+
+Then, I will briefly touch upon the relevant literature.
+
+After that, I will explain my data and methodology.
+
+Finally, I will present my results and conclude.
+
+:::
+# 1. Introduction {background-color="#004079" .section-slide visibility="uncounted"}
+
+## 1.1. Motivation 
+### Relevance of the Topic {.smaller}
+**From Social Challenge to Economic Asset**
+
+- **Shifting the Narrative**: Immigration is not just a social phenomenon; it is a **fundamental driver of regional prosperity**.
+
+- **The "Integration Success" Lens**: Moving beyond "Simple Population Shares" (Quantity).
+
+- **Focusing on Labor Integration Efficacy (Quality)**: Does the labor market successfully absorb foreign talent?
+
+- **Turning Stability into Growth**: Analyzing the interaction between **Public Safety** (Property Damage/Crime) and economic performance.
+
+::: {.notes}
+Why did I choose this specific topic? 
+
+First, there is a common misconception that immigration is a social challenge. In this study, I reframe it as a matter of Economic Necessity.
+
+Secondly, I wanted to move beyond just looking at the number of foreigners in a district. 
+
+What truly matters for a regional economy is not just the presence of people, what truly matters is their Integration Efficacy.
+
+Finally, we cannot ignore the environment.
+
+By including crime as a proxy for social stability, I investigate how the safety of a district correlates with its prosperity.
+:::
+
+## 1.2. Research Question & Hypotheses
+**Guiding Our Analysis**
+
+> "To what extent does regional integration success drive GDP per capita in German districts, and how does the safety environment moderate this relationship?"
+
+
+
+- **$H_1$: Capital Accumulation**: Higher capital stock per capita is positively correlated with GDP growth.
+- **$H_2$: Integration Efficacy**: Regions with higher labor integration efficacy exhibit superior economic performance.
+- **$H_3$: Social Stability**: Higher rates of property damage (as a proxy for crime) act as a deterrent to regional prosperity.
+- **$H_4$: Demographic Dividends**: The age structure (share of children and youth) significantly impacts the long-term economic trajectory.
+
+::: {.notes}
+"To guide my empirical analysis, I've formulated two central research questions. 
+
+"To what extent does regional integration success drive GDP per capita in German districts?, 
+
+and how does the safety environment moderate this relationship?"
+
+This leads to our four main hypotheses.
+
+
+First, we expect the positive link between capital stock and GDP.
+
+Second, and more central to this study, we hypothesize that 'Integration Efficacy'—the success rate of bringing people into the workforce—is a key driver of regional wealth.
+
+Furthermore, we examine the 'Social Stability' factor. We expect that property crime might create an environment of uncertainty which negatively affects the regional prosperity.
+
+Lastly, we control for demographic shifts to see how the next generation impacts the current economic landscape."
+:::
+
+# 2. Literature {background-color="#004079" .section-slide visibility="uncounted"}
+
+## 2. Literature Review {.smaller}
+
+- **@damuri2014 : Immigration, Jobs, and Employment Protection: Evidence from Europe Before and During the Great Recession**
+
+  - **Data:** EU-LFS (European Union Labour Force Survey) and OECD EPL database.
+
+  - **Scope:** 1996–2007, 15 Western European countries (Panel Data).
+
+  - **Finding:** Immigrants and natives act as complements, where immigration triggers a productivity shift by pushing natives toward more complex, higher-paying tasks.
+
+- **@piopiunik2017 : Immigration, Regional Conditions, and Crime: Evidence from an Allocation Policy in Germany**
+
+  - **Data:** PKS (Police Crime Statistics), BA (Employment Agency), and Destatis.
+
+  - **Scope:** 1996–2005, West German Districts.
+
+  - **Finding:** Immigration's impact on crime is primarily driven by regional economic conditions such as local unemployment and population density.
+
+
+- **@degler2017 : Finding their Way: Labour Market Integration of Refugees in Germany**
+
+  - **Data:** IAB-BAMF-SOEP Refugee Survey, BA administrative data, and OECD indicators.
+
+  - **Scope:** 2013–2017, Germany (National level analysis).
+
+  - **Finding:** Successful integration depends on rapid labor market access and institutional frameworks that align migrant skills with local economic demand.
+
+::: {.notes}
+On the first paper: "They provide the theoretical foundation for my 'Prosperity' thesis, proving that immigration can actually enhance native wages and productivity through labor market complementarity."
+
+On the second paper: They argue that the link between crime and migration is fundamentally driven by economic factors, with elevated unemployment and unfavorable regional conditions serving as the main triggers of criminal activity.
+
+And the last paper: "They offer contemporary evidence for our 'Efficacy' variable, arguing that the speed of workforce absorption is the most critical factor for regional economic stability."
+
+By combining these insights, I structured my study to analyze the interplay between regional prosperity, labor market integration, and social stability in Germany with the most actual data."
+:::
+
+# 3. Data {background-color="#004079" .section-slide visibility="uncounted"}
+
+## 3.1. Data Sources: PKS (Crime Data)
+
+**Bundeskriminalamt (BKA) - Polizeiliche Kriminalstatistik**
+
+- **Dataset:** Official police crime statistics covering all German districts.
+- **Timeframe:** 2003 – 2021
+- **Core Variable:** *Property Damage Rate* (Sachbeschädigung).
+- **Purpose:** Used as a proxy for the regional economic environment, social stability, and investment security.
+- **Source:** [BKA PKS Dataset](https://www.bka.de/DE/AktuelleInformationen/StatistikenLagebilder/PolizeilicheKriminalstatistik/pks_node.html)
+
+
+## 3.2. Data Sources: INKAR (Prosperity & Demographics)
+
+**Indikatoren und Karten zur Raum- und Stadtentwicklung**
+
+- **Dataset:** Maintained by the Federal Institute for Research on Building, Urban Affairs and Spatial Development (BBSR).
+- **Timeframe:** Multiple decades up to recent years.
+- **Core Variables:** 
+  - **Prosperity:** GDP per Capita
+  - **Demographics:** Population(Zensus 2011), Age structure (youth shares), Foreigner Share, Foreign Labor Supply Pressure, Labor Integration Efficacy.
+- **Source:** [INKAR Database](https://www.inkar.de/)
+
+
+## 3.3. Data Sources: StatistikPortal (Capital Stock) {#sec-data-capital}
+
+**Top-Down Distribution Methodology**
+
+- **Datasets:** State Capital Stock (Net Fixed Assets) and District Gross Value Added (GVA).
+- **Timeframe:** 2003 – 2021
+- **Core Variable:** *Capital Stock per Capita* ($K_{it-1}$).
+- **Challenge:** Capital stock ($K$) is only reported at the State ($s$) level, not the District ($d$) level.
+- **Solution:** We employed a sector-specific top-down distribution algorithm. We weighted State-level capital data by the District's share of Gross Value Added (GVA) to accurately proxy regional capital intensity. <a href="#/sec-app-capital" style="display: inline-block; padding: 2px 8px; font-size: 0.75em; background-color: #004079; color: white; border-radius: 4px; text-decoration: none; margin-left: 5px; vertical-align: text-bottom;">Details ➔</a>
+- **Source:** [Statistikportal VGRdL](https://www.statistikportal.de/de/vgrdl)
+
+## 3.4. Spatial Harmonization {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<iframe src="assets/interactive_map.html" width="100%" height="580px" style="border:none; border-radius:12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);"></iframe>
+:::
+
+::: {.column width="50%" style="font-size: 0.72em; overflow: visible !important;"}
+### Territorial Reform (Gebietsreformen)
+- **The Challenge:** Over the 19-year period, district borders are not static (merges/splits). This creates *artificial jumps* in the time-series data.
+- **The Solution:** Spatial Harmonization of all datasets (PKS, INKAR, Capital Stock) to the **static 2023 boundaries** using BBSR's *Umsteigeschlüssel* (Conversion Keys).
+- **Weighting Strategy:** Used population-proportional weighting ($Weight_{Pop}$) rather than area, as socio-economic activity centers in populated zones.
+- **Formula:** 
+$$Value_{Target} = \sum_{Source} (Value_{Source} \times Weight_{Pop})$$
+
+<div style="display: flex; flex-direction: column; gap: 20px; align-items: start; width: 100%; padding-bottom: 40px;">
+
+```{r}
+#| echo: false
+#| results: asis
+htmltools::includeHTML(here::here(
+    "05_presentation",
+    "assets",
+    "calc_table_rostock.html"
+))
+```
+
+```{r}
+#| echo: false
+#| results: asis
+htmltools::includeHTML(here::here(
+    "05_presentation",
+    "assets",
+    "calc_table_demmin.html"
+))
+```
+
+</div>
+:::
+
+::::
+
+## 3.5. Data Refinement: Census 2011 Adjustment {.smaller}
+
+**Addressing Population Shocks: Census 2011 Correction**
+
+- **The Problem:** The 2011 Census revealed significant overestimations in German population registers (*Fortschreibung*). This caused artificial "jumps" or "breaks" in per capita metrics. Traditional crime rates (PKS) using unadjusted population figures would suffer from measurement bias.
+- **The Solution:** Recalculation of Crime Rates. We re-estimated the denominator (population) for the pre-2011 and transition years using a backward-correction method.
+- **Formula Applied:** 
+
+$$Adjusted\ Rate_{ District, Year } = \frac{Crime\ Count_{ District, Year }}{Population_{ District, Year }^{Census\_Corrected}} \times 100,000$$
+
+
+- **Impact:** Ensures that the Property Damage Rate reflects actual changes in criminal activity rather than administrative population corrections.
+
+
+# 4. Methodology {background-color="#004079" .section-slide visibility="uncounted"}
+
+## 4.1. Two-Way Fixed Effects (TWFE) {.smaller}
+
+**Estimating Regional Prosperity: The Econometric Framework**
+
+<div style="text-align: center; margin-bottom: 20px; padding: 20px; background: rgba(0, 64, 121, 0.05); border-radius: 10px; border: 1px solid rgba(0, 64, 121, 0.1);">
+$$\ln(Y_{it}) = \alpha + \beta_1 FLSP_{it-1} + \beta_2 Effic_{it-1} + \beta_3 \ln(Crime_{it-1}) + \gamma \ln(K_{it-1}) + \mathbf{X}_{it-1}\Phi + \mu_i + \delta_t + \epsilon_{it}$$
+</div>
+
+::: {.columns}
+::: {.column width="50%" style="font-size: 0.85em;"}
+**Variables & Interpretation:**
+
+- **$\ln(Y_{it})$**: Log GDP per capita (Prosperity).
+- **$FLSP_{it-1}$**: Foreign Labor Supply Pressure (**Lagged L1**).
+- **$Effic_{it-1}$**: Labor Integration Efficacy (**Lagged L1**).
+- **$\ln(Crime_{it-1})$**: Log Property Damage Rate (**Lagged L1**).
+- **$\ln(K_{it-1})$**: Log Capital Stock per capita (**Elasticity**).
+- **$\mathbf{X}_{it-1}$**: Vector of Controls (**Lagged L1**).
+- **$\Phi$**: Vector of coefficients for control variables.
+:::
+
+::: {.column width="50%" style="font-size: 0.85em;"}
+**Identification Strategy:**
+
+- **$\mu_i$**: **District Fixed Effects** (Absorbs regional traits).
+- **$\delta_t$**: **Year Fixed Effects** (Captures macro shocks).
+- **$\epsilon_{it}$**: **Idiosyncratic Error Term** (White noise).
+- **Clustering**: SE clustered at **District level**.
+- **Hybrid Form**: Log-Log and Log-Lin for causal interp.
+:::
+:::
+
+<div style="margin-top: 15px; background: #f9f9f9; padding: 12px; border-left: 5px solid #004079; font-size: 0.75em;">
+**Why this Framework?**
+
+- **Endogeneity:** Lagging labor market and labor integration  variables ($t-1$) mitigates Reverse Causality.
+- **Omitted Variable Bias:** TWFE eliminates bias from unobserved factors (geography, history).
+- **Statistical Rigor:** Clustering accounts for within-district temporal autocorrelation.
+</div>
+
+
+
+::: {.notes}
+I chose the Fixed Effects (FE) model because it allows us to focus on the 'within-variation.' Instead of comparing different districts to each other, the model looks at how changes inside a single district affect its own growth over time.
+
+I used District FE because every district has unique, permanent features—like its geographic location, local culture, or industrial history. These 'static' factors could bias our results, so the District FE 'absorbs' them, ensuring they don't interfere with our main variables.
+
+By using Year FE, I 'clean' the model of external macro-events, leaving us with the pure regional effect."
+
+"I used Lagged Variables ($t-1$) because integration needs time to show its economic impact. It also solves the 'chicken and egg' problem—it proves that last year's integration success leads to this year's prosperity, and not the other way around."
+
+Also, by clustering the errors, I adjusted my statistics to account for this correlation within each district.
+:::
+
+---
+
+## 4.2. Variable Specifications in Detail {#sec-methodology-vars .smaller}
+
+:::: {.columns}
+<div style="text-align: center; margin-bottom: 20px; padding: 20px; background: rgba(0, 64, 121, 0.05); border-radius: 10px; border: 1px solid rgba(0, 64, 121, 0.1);">
+$$\ln(Y_{it}) = \alpha + \beta_1 FLSP_{it-1} + \beta_2 Effic_{it-1} + \beta_3 \ln(Crime_{it-1}) + \gamma \ln(K_{it-1}) + \mathbf{X}_{it-1}\Phi + \mu_i + \delta_t + \epsilon_{it}$$
+</div>
+
+::: {.column width="48%"}
+
+
+**Dependent Variable**
+
+*   **Log GDP per Capita ($\ln Y_{it}$):** Primary metric for regional prosperity. Enables interpretation of elasticities.
+
+<br>
+
+**Independent Variables**
+
+*   **Foreign Labor Supply Pressure ($FLSP_{it-1}$):** The ratio of the foreign unemployment share to the total foreigner share in a district. <a href="#/sec-app-flsp" style="display: inline-block; padding: 2px 8px; font-size: 0.75em; background-color: #004079; color: white; border-radius: 4px; text-decoration: none; margin-left: 5px; vertical-align: text-bottom;">Details ➔</a>
+*   **Labor Integration Efficacy ($Effic_{it-1}$):** Ratio of employed foreigners to total foreign population (lagged). <a href="#/sec-app-effic" style="display: inline-block; padding: 2px 8px; font-size: 0.75em; background-color: #004079; color: white; border-radius: 4px; text-decoration: none; margin-left: 5px; vertical-align: text-bottom;">Details ➔</a>
+*   **Lagged Property Damage ($\ln Crime_{it-1}$):** Proxy for institutional stability. Used to measure the economic impact of crime.
+:::
+
+::: {.column width="4%"}
+<!-- Spacer -->
+:::
+
+::: {.column width="48%"}
+**Control Variables**
+
+*   **Log Capital Stock ($\ln K_{it-1}$):** Physical capital intensity, a fundamental growth driver. <a href="#/sec-app-capital" style="display: inline-block; padding: 2px 8px; font-size: 0.75em; background-color: #004079; color: white; border-radius: 4px; text-decoration: none; margin-left: 5px; vertical-align: text-bottom;">Details ➔</a>
+*   **Log Unemployment ($Unemp_{it-1}$):** Regional business cycle control (lagged).
+*   **Demographic Shares ($Children_{it}, Youth_{it}$):** Population aged 0-17 and 18-24 (dependency ratios).
+*   **Foreigner Share ($Foreigner_{it}$):** Total foreign population share, isolating pure integration effects.
+:::
+::::
+
+
+# 5. Results {background-color="#004079" .section-slide visibility="uncounted"}
+
+## 5.1. Main Results{.smaller}
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+library(htmltools)
+includeHTML(here::here(
+    "03_results",
+    "tables",
+    "html",
+    "regression_results.html"
+))
+```
+
+::: {.notes}
+"The table presents the results of my stepwise regression, where I gradually added variables to ensure the robustness of the model. 
+
+Log Unemployment (-0.061): As we expected, A 1% increase in last year's unemployment rate reduces current GDP per capita by 0.06%.
+
+Log Capital Stock (+0.612): As expected, capital intensity is a major driver. A 1% increase in capital stock per capita results in a 0.61% increase in regional output.
+
+Log Property Damage (t-1) (+0.019): Contrary to our initial hypothesis, a 1% increase in property damage is associated with a 0.019% increase in GDP. I interpret this result not as 'crime is good for growth,' but as a proxy for 'Urban Intensity and Economic Activity. Because high-density economic hubs naturally report higher property incidents due to their economic density.
+
+Demographics: We observe that a 1 percentage point increase in the share of Children (-0.010) or Youth (-0.010) reduces per capita GDP by approximately 1%.
+
+Foreigner Share: We see that a 1 percentage point increase in the share of foreigners reduces per capita GDP by approximately 0.005%. I interpret this not a sign of economic damage, but as a denominator effect. Because population increase faster than immediate output. Also if we compare this result with the integration efficacy coefficient of 2.5%,
+the 'integration quality' is five times more powerful than the 'foreigner quantity'.
+
+Foreign Labor Supply Pressure (+0.009): Interestingly, a 1-unit increase in the supply pressure shows a slight 0.9% increase in GDP, suggesting that even under-integrated populations can create some economic pressure or demand-side growth.
+
+Labor Integration Efficacy (+0.027): A 1-unit increase in efficacy leads to a 2.7% increase in GDP per capita. This is our most significant result.
+
+I report the Within $R^2$ rather than the regular $R^2$ because I want to show how much of the change in a district's prosperity I can explain. A value of 0.336 proves that my model has a strong explanatory power for the economic shifts happening within Germany’s local economies
+
+:::
+
+## 5.2. Key Findings {.smaller}
+
+:::: {style="font-size: 0.75em;"}
+
+**Evaluating the Drivers of Regional Prosperity**
+
+::: {.columns}
+::: {.column width="70%"}
+#### **Core Economic Drivers**
+* **Labor Integration Efficacy (+0.027***): Significant at 1% level. 
+    * **The Integration Dividend:** A 1-unit rise in efficacy boosts GDP per capita by **2.7%**.
+    * *Takeaway:* Successful labor market absorption is a high-yield economic asset.
+* **Capital Accumulation (+0.612***): Confirms $H_1$ (Neoclassical growth). 
+    * Physical capital intensity remains the primary engine of district productivity.
+
+----
+
+#### **Demographic & Contextual Factors**
+* **Demographic Friction (-0.010\*\*\*):** High shares of children and youth create a temporary **Dependency Burden**, lowering per capita output in the short term ($H_4$).
+* **The Urban Paradox (+0.019\*\*\*):** Property damage acts as a **Proxy for Urban Intensity**. 
+    * Prosperous, high-density hubs experience more reporting/incidents ($H_3$).
+* **Quantity vs. Quality:** While *Foreigner Share* is slightly negative, the **Efficacy** of their integration more than compensates for the volume effect.
+
+---
+
+::: {style="margin-bottom: 25px; font-size: 0.65em;"}
+
+| Hypothesis | Proposition | Direction | Significance | Status |
+|:---|:--------|:---:|:---:|:---:|
+| **H1: Capital** | Higher capital stock increases GDP per capita | **+** | \*\*\* | **Confirmed** |
+| **H2: Efficacy** | Labor integration efficacy boosts regional prosperity | **+** | \*\*\* | **Confirmed** |
+| **H3: Stability** | Property damage (crime) reduces regional GDP | **+** | \*\*\* | **Counter-intuitive** |
+| **H4: Demography** | Higher youth/children shares reduce GDP per capita | **-** | \*\*\* | **Confirmed** |
+
+::: {style="font-size: 0.9em; font-style: italic; margin-top: 10px;"}
+* Note: H3 shows a positive coefficient, acting as a proxy for urban economic intensity.
+:::
+
+:::
+
+:::
+::: {.column width="30%"}
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+htmltools::includeHTML(
+    here::here("03_results", "tables", "html", "regression_results_final.html")
+)
+```
+
+:::
+:::
+
+::::
+
+::: {.notes}
+"Now, key findings of the model.
+
+**First, Integration. Our results strongly confirm Hypothesis 2. The positive and highly significant coefficient of 0.027 for Labor Integration Efficacy is the cornerstone of this study. It tells us that for German districts, the challenge is not the number of foreigners, but how effectively they are integrated into the workforce. Successful absorption is a powerful catalyst for regional growth.
+
+**Second, Capital Stock.** As expected, **Capital Stock** is the dominant driver with an elasticity of 0.61. This confirms that physical investment remains the backbone of productivity.
+
+**Third, the paradoxes.** As you noticed, **Property Damage** and the **Foreign Labor Supply Pressure** show positive coefficients. In regional science, this is often seen in high-density economic hubs. These districts are magnets for both wealth and people, which naturally leads to higher reported property incidents and more competitive, friction-heavy labor markets. Thus, these variables likely capture the 'intensity' of urban economic life.
+
+In summary, our model demonstrates that while demographic shifts and foreigner shares might pose initial challenges, **Efficacy** is the key policy lever to turn migration into a regional economic dividend."
+
+:::
+# 6. Conclusion {background-color="#004079" .section-slide visibility="uncounted"}
+
+
+## Summary & Key Takeaways {.smaller}
+
+#### Key Takeaways
+* **Beyond Volume:** The research demonstrates that the quality of integration (Efficacy) is a more potent driver of regional GDP per capita than the mere quantity of the foreign population (Share).
+* **Growth Potential:** Confirmed that a 1-unit improvement in Labor Integration Efficacy correlates with a 2.7% increase in regional prosperity, rivaling the impact of traditional capital investment.
+* **Structural Robustness:** Confirmed that **Lagged Property Damage ($t-1$)** maintains its role as a stable urban proxy, ensuring results are robust to different temporal specifications.
+
+<hr style="border: 0; height: 1px; background-color: #D3D3D3; margin-top: 20px; margin-bottom: 20px;">
+
+#### Final Verdict
+> "Immigration is a demographic reality; but Labor Integration is an economic choice. Districts that successfully absorb foreign talent into their workforce transform a social challenge into a measurable regional dividend."
+
+
+
+::: {.notes}
+
+Our analysis has shown that the 'Integration Dividend' is a real phenomenon in German districts. While the public debate often focuses on the volume of   immigration, our empirical evidence suggests that Labor Integration Efficacy is the variable that truly moves the needle on prosperity. By shifting the focus from 'how many people arrive' to 'how many people contribute,' we see that integration success can boost GDP per capita by 2.7% per unit.
+
+This research highlights that while traditional drivers like capital accumulation remain essential, the optimization of human capital through successful workforce absorption offers a high-yield pathway to regional development. In an era of demographic shifts and labor shortages, the efficiency of integration is no longer just a social mandate—it is a cornerstone of regional economic policy.
+
+Thank you for your attention, and I am now open to your questions."
+
+:::
+
+# 7. References {background-color="#004079" .section-slide visibility="uncounted"}
+
+## Bibliography
+
+::: {#refs}
+:::
+
+# Thank you for your attention! {background-color="#004079" .section-slide visibility="uncounted"}
+
+# Questions? {background-color="#004079" .section-slide visibility="uncounted"}
+
+# Appendix {background-color="#004079" .section-slide visibility="uncounted"}
+
+## A.1: Capital Stock Calculation {#sec-app-capital .smaller visibility="uncounted"}
+
+**Top-Down Distribution Algorithm**
+
+To resolve the absence of District-level capital data, we distributed State-level Net Fixed Assets ($K$) down to the District ($d$) using sector-specific ($i$) Gross Value Added (GVA) weights.
+
+<div style="font-size: 0.85em; background: rgba(0, 64, 121, 0.05); padding: 15px; border-radius: 10px; border: 1px solid rgba(0, 64, 121, 0.1); margin-top: 15px;">
+1. **Calculate Sector Weights:** The district's share of the state's total GVA for sector $i$:
+   $$Weight_{d,i} = \frac{GVA_{d,i}}{GVA_{s,i}}$$
+2. **Downscale Capital Stock:** Distributed the State's Capital for sector $i$ to the District level:
+   $$K_{d,i} = K_{s,i} \times Weight_{d,i}$$
+3. **Total District Capital Stock:** Aggregated the sectors (Agriculture, Industry, Services):
+   $$K_{d}^{Total} = K_{d, Agriculture} + K_{d, Industry} + K_{d, Services}$$
+4. **Calculate Per Capita Values:** Used census-corrected population figures to derive the final metric:
+   $$K_{d}^{pc} = \frac{K_{d}^{Total}}{Pop_{d}}$$
+</div>
+
+<div style="text-align: center; margin-top: 25px;">
+<a href="#/sec-data-capital" style="display: inline-block; padding: 8px 20px; font-size: 0.9em; background-color: #004079; color: white; border-radius: 5px; text-decoration: none; border: 1px solid #002d56;">⬅ Back to Data Sources</a>
+</div>
+
+
+## A.2: Labor Integration Efficacy {#sec-app-effic .smaller visibility="uncounted"}
+
+**What does it measure?**
+It explicitly measures the **direct absorption** of the foreign population into the regional workforce. Higher values indicate that a larger portion of the migrant/foreign demographic in a district is actively engaged in productive economic roles, reflecting successful labor market integration.
+
+**Mathematical Calculation:**
+<div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(0, 64, 121, 0.05); border-radius: 10px; border: 1px solid rgba(0, 64, 121, 0.1);">
+$$Effic_{it-1} = (100 - \text{Share of Unemployed Foreigners}_{it}) \times \text{Foreigner Share}_{it}$$
+</div>
+
+<div style="text-align: center; margin-top: 40px;">
+<a href="#/sec-methodology-vars" style="display: inline-block; padding: 8px 20px; font-size: 0.9em; background-color: #004079; color: white; border-radius: 5px; text-decoration: none; border: 1px solid #002d56;">⬅ Back to Variables</a>
+</div>
+
+:::{.notes}
+"This variable measures how effectively the foreign population is integrated into the workforce and how actively they contribute to the regional economy."
+or
+"It measures the extent to which foreigners are included in the economy as active producers rather than being an economic burden."
+:::
+
+## A.3: Foreign Labor Supply Pressure {#sec-app-flsp .smaller visibility="uncounted"}
+
+**What does it measure?**
+It captures the **opportunity cost** or structured disparity of an unintegrated demographic. A positive pressure means the share of foreigners in the general population is larger than their share in the actual workforce, indicating an untapped labor potential and structural integration failure.
+
+**Mathematical Calculation:**
+<div style="text-align: center; margin: 20px 0; padding: 20px; background: rgba(0, 64, 121, 0.05); border-radius: 10px; border: 1px solid rgba(0, 64, 121, 0.1);">
+$$FLSP_{it} = \frac{\text{Foreign Unemployed Share}_{it}}{\text{Foreigner Share}_{it}}$$
+</div>
+
+*Note: In our primary model, this variable is lagged by one year ($t-1$) to mitigate reverse causality.*
+
+<div style="text-align: center; margin-top: 30px;">
+<a href="#/sec-methodology-vars" style="display: inline-block; padding: 8px 20px; font-size: 0.9em; background-color: #004079; color: white; border-radius: 5px; text-decoration: none; border: 1px solid #002d56;">⬅ Back to Variables</a>
+</div>
+
+:::{.notes}
+Basically, it asks: “Are foreigners in this district unemployed at a higher rate than their share of the population?”
+
+High pressure suggests that the labor market is not effectively integrating the available workforce.
+:::
+
+## A.4 Lag Sensitivity {.smaller .scrollable visibility="uncounted"}
+- Integration success has a **cumulative/compounding effect** on prosperity over time.
+
+<div style="zoom: 0.85;">
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+htmltools::includeHTML(here::here(
+    "03_results",
+    "tables",
+    "html",
+    "regression_lag_sensitivity.html"
+))
+```
+</div>
+
+## A.5 East vs. West Germany {.smaller .scrollable visibility="uncounted"}
+- **Observation:** Results are robust at the national level.
+
+<div style="zoom: 1;">
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+htmltools::includeHTML(here::here(
+    "03_results",
+    "tables",
+    "html",
+    "regression_east_west.html"
+))
+```
+</div>
+
+## A.6 Alternative Crime Definitions {.smaller .scrollable visibility="uncounted"}
+- **Robustness:** Testing if results hold across various crime categories.
+
+<div style="zoom: 0.85;">
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+htmltools::includeHTML(here::here(
+    "03_results",
+    "tables",
+    "html",
+    "crime_subtypes",
+    "regression_comparison_subtypes.html"
+))
+```
+</div>
