@@ -16,7 +16,7 @@ The project utilizes a balanced panel dataset of 400 German districts (NUTS-3 le
 * **Constructed Metrics:**
   * *Labor Integration Efficacy (LIE):* Measures the local efficiency of absorbing the foreign-born population into the active labor market.
   * *Foreign Labor Supply Pressure (FLSP):* Measures the concentration of foreign labor reserves relative to the regional labor force.
-* **Software Contributions:**
+* **R Package Contributions:**
   * **[inkaR](https://github.com/ofurkancoban/inkaR):** A fast, modern, and lightweight R package developed for this project to automate the downloading, cleaning, and spatial mapping of development indicators directly from the official German Federal Office for Building and Regional Planning (BBSR) INKAR database.
 
 ### Key Empirical Findings
