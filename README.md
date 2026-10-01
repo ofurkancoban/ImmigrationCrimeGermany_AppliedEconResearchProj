@@ -115,5 +115,5 @@ Managed via `renv`. Major packages include:
 
 ---
 
-**Author:** Furkan Çoban
+**Author:** Ömer Furkan Çoban
 **Course:** Applied Economics, Uni Oldenburg (WiSe 25/26)
